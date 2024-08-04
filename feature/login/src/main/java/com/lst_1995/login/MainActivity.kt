@@ -1,4 +1,4 @@
-package com.lst_1995.freetableorder
+package com.lst_1995.login
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
