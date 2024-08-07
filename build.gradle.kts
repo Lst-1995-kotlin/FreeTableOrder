@@ -7,4 +7,5 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.kotlinx.serialization) apply false
     alias(libs.plugins.navigation.safe.args) apply false
+    alias(libs.plugins.ksp) apply false
 }
