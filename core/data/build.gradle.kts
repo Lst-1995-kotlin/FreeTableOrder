@@ -1,6 +1,7 @@
 plugins {
     id("freetableorder.android.library")
     id("freetableorder.android.hilt")
+    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {
@@ -13,4 +14,5 @@ android {
 
 dependencies {
     implementation(project(":core:domain"))
+    implementation(libs.datastore.preferences)
 }
