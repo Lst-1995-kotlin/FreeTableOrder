@@ -4,9 +4,11 @@ import com.lst_1995.core.data.datasource.LocalDataStore
 import com.lst_1995.core.domain.repository.AuthRepository
 import javax.inject.Inject
 
-class AuthRepositoryImpl@Inject constructor(
-    private val localDataStore: LocalDataStore,
-) : AuthRepository {
+class AuthRepositoryImpl
+    @Inject
+    constructor(
+        private val localDataStore: LocalDataStore,
+    ) : AuthRepository {
         override fun loginWithGoogle() {
             TODO("Not yet implemented")
         }
