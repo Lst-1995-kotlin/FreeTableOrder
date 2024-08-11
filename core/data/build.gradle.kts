@@ -15,4 +15,6 @@ android {
 dependencies {
     implementation(project(":core:domain"))
     implementation(libs.datastore.preferences)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 }

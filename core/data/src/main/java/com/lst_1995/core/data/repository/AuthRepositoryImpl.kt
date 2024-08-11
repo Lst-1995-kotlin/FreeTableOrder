@@ -16,20 +16,4 @@ class AuthRepositoryImpl
         override fun singupWithGoogle() {
             TODO("Not yet implemented")
         }
-
-        override fun loginWithNaver() {
-            TODO("Not yet implemented")
-        }
-
-        override fun singupWithNaver() {
-            TODO("Not yet implemented")
-        }
-
-        override fun loginWithKakao() {
-            TODO("Not yet implemented")
-        }
-
-        override fun singupWithKakao() {
-            TODO("Not yet implemented")
-        }
     }
