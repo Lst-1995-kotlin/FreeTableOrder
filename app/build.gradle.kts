@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.gms)
     id("freetableorder.android.hilt")
+    id("kotlin-kapt")
 }
 
 android {
