@@ -27,6 +27,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 // TODO: 정상적으로 이루어 졌을 때 반응
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                task.result.idToken?.let {
+                    viewModel.loginWithGoogle(it)
+                }
             }
         }
 
@@ -40,7 +44,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         // 자동 로그인 체크
         // 구글, 네이버, 카카오 계정으로 로그인 기능 작성
         // 디바이스가 무엇인지 설정하는 화면으로 전환 기능 작성
+        setLoginWithGoogle()
+    }
 
+    private fun setLoginWithGoogle() {
         binding.button.setOnClickListener {
             val googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
             googleLoginLauncher.launch(googleSignInClient.signInIntent)

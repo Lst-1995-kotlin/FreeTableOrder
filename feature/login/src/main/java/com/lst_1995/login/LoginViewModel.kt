@@ -9,4 +9,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val authUseCase: AuthUseCase
 ): ViewModel() {
+    fun loginWithGoogle(token: String) {
+        authUseCase.loginWithGoogle(token)
+    }
 }
