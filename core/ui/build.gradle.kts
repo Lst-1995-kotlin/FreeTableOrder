@@ -18,4 +18,5 @@ dependencies {
 
     api(libs.navigation.fragment.ktx)
     api(libs.navigation.ui.ktx)
+    implementation(libs.androidx.junit.ktx)
 }

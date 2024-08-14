@@ -23,9 +23,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.lst_1995.freetableorder" />
-                  <option name="mobileSdkAppId" value="1:287772941015:android:fb10583da2da7354b7ee92" />
-                  <option name="projectId" value="freetableorder" />
-                  <option name="projectNumber" value="287772941015" />
+                  <option name="mobileSdkAppId" value="1:125925874049:android:0f84acbc95ade1dd97f080" />
+                  <option name="projectId" value="freetableorder-8a026" />
+                  <option name="projectNumber" value="125925874049" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

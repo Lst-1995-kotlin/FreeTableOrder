@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("freetableorder.android.hilt")
-    id("kotlin-kapt")
 }
 
 android {
@@ -50,4 +49,5 @@ dependencies {
     // navigation
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    testImplementation(libs.junit.junit)
 }
