@@ -6,10 +6,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val authUseCase: AuthUseCase
-): ViewModel() {
-    fun loginWithGoogle(token: String) {
-        authUseCase.loginWithGoogle(token)
+class LoginViewModel
+    @Inject
+    constructor(
+        private val authUseCase: AuthUseCase,
+    ) : ViewModel() {
+        fun loginWithGoogle(token: String) {
+            authUseCase.loginWithGoogle(token)
+        }
     }
-}
