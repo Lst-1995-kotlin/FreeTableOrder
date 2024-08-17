@@ -10,15 +10,6 @@
         android:name="com.lst_1995.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_singInFragment"
-            app:destination="@id/singInFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/singInFragment"
-        android:name="com.lst_1995.login.SingInFragment"
-        android:label="SingInFragment"
-        tools:layout="@layout/fragment_sing_in"
-        />
 </navigation>

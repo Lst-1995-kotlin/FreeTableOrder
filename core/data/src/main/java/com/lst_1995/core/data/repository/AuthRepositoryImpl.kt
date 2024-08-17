@@ -1,7 +1,7 @@
 package com.lst_1995.core.data.repository
 
-import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.lst_1995.core.data.datasource.LocalDataStore
 import com.lst_1995.core.domain.repository.AuthRepository
 import javax.inject.Inject
@@ -12,21 +12,18 @@ class AuthRepositoryImpl
         private val localDataStore: LocalDataStore,
         private val auth: FirebaseAuth,
     ) : AuthRepository {
-        override fun loginWithGoogle(token: String) {
-            Log.d("tttt", "실행")
+        override fun firebaseAuthWithGoogle(idToken: String) { // 레포지토리 쪽으로 이동
+            val credential = GoogleAuthProvider.getCredential(idToken, null)
             auth
-                .signInWithCustomToken(token)
+                .signInWithCredential(credential)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d("tttt", "성공")
                     } else {
-                        Log.d("tttt", "${task.exception}")
                     }
-
                 }
         }
 
-        override fun singupWithGoogle() {
-            TODO("Not yet implemented")
+        override fun authLoginWithGoogle() {
+            // TODO("Not yet implemented")
         }
     }

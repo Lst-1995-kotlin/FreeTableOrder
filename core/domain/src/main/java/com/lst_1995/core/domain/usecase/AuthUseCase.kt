@@ -8,7 +8,7 @@ class AuthUseCase
     constructor(
         private val authRepository: AuthRepository,
     ) {
-        fun loginWithGoogle(token: String) {
-            authRepository.loginWithGoogle(token)
+        fun firebaseAuthWithGoogle(idToken: String) {
+            authRepository.firebaseAuthWithGoogle(idToken)
         }
     }

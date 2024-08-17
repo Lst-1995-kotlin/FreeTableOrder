@@ -11,7 +11,7 @@ class LoginViewModel
     constructor(
         private val authUseCase: AuthUseCase,
     ) : ViewModel() {
-        fun loginWithGoogle(token: String) {
-            authUseCase.loginWithGoogle(token)
+        fun firebaseAuthWithGoogle(idToken: String) {
+            authUseCase.firebaseAuthWithGoogle(idToken)
         }
     }
