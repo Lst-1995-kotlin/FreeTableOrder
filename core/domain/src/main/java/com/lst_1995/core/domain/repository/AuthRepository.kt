@@ -1,7 +1,11 @@
 package com.lst_1995.core.domain.repository
 
-interface AuthRepository {
-    fun firebaseAuthWithGoogle(idToken: String)
+import com.lst_1995.core.domain.usecase.ResultCode
 
-    fun authLoginWithGoogle()
+interface AuthRepository {
+    fun firebaseAuthWithGoogle(idToken: String): ResultCode
+
+    fun autoLoginCheck(): Boolean
+
+    fun signOut()
 }

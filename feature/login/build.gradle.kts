@@ -3,6 +3,7 @@ import java.util.Properties
 
 plugins {
     id("freetableorder.android.feature")
+    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 val localPropertiesFile = rootProject.file("local.properties")
