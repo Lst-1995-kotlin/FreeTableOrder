@@ -18,15 +18,5 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
     ) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-
-        binding.button2.setOnClickListener {
-            viewModel.signOut()
-        }
-
-        viewModel.loginState.observe(viewLifecycleOwner) {
-            if (!it) {
-                findNavController().popBackStack()
-            }
-        }
     }
 }

@@ -13,11 +13,11 @@ class LocalDataStore
     constructor(
         private val dataStore: DataStore<Preferences>,
     ) {
-        private val authLoginToken = stringPreferencesKey("authLoginToken")
+        private val playMode = stringPreferencesKey("playMode")
 
-        suspend fun saveLoginToken(token: String) {
-            dataStore.edit { preferences -> preferences[authLoginToken] = token }
+        suspend fun savePlayMode(mode: String) {
+            dataStore.edit { preferences -> preferences[playMode] = mode }
         }
 
-        suspend fun getLoginToken(): String = dataStore.data.map { preferences -> preferences[authLoginToken] ?: "" }.first()
+        suspend fun getPlayMode(): String = dataStore.data.map { preferences -> preferences[playMode] ?: "" }.first()
     }
