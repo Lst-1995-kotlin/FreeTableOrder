@@ -1,7 +1,9 @@
 package com.lst_1995.core.domain.repository
 
-interface LocalDataRepository {
-    fun savePlayMode()
+import com.lst_1995.core.domain.model.ResultType
 
-    fun getPlayMode()
+interface LocalDataRepository {
+    suspend fun savePlayMode(mode: String): ResultType
+
+    suspend fun getPlayMode(): String
 }

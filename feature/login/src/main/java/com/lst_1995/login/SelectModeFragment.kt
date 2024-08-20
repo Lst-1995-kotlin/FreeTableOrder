@@ -3,7 +3,6 @@ package com.lst_1995.login
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.login.databinding.FragmentSelectModeBinding
 import dagger.hilt.android.AndroidEntryPoint

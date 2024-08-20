@@ -26,4 +26,5 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.ui.auth)
     implementation(libs.google.services)
+    testImplementation(libs.junit.junit)
 }
