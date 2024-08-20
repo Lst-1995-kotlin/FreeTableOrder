@@ -32,7 +32,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     Log.d(TAG, "No ID token!")
                 }
             } catch (e: ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
+                Log.w(TAG, "Google sign in failed / signInLauncher", e)
             }
         }
     private val signInRequest =
@@ -74,7 +74,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             .addOnSuccessListener { pendingIntent ->
                 launchSignIn(pendingIntent)
             }.addOnFailureListener { e ->
-                Log.e(TAG, "Google Sign-in failed", e)
+                Log.e(TAG, "Google Sign-in failed / googleWithSignIn()", e)
             }
     }
 
