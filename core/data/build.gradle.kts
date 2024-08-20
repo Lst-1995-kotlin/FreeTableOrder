@@ -1,7 +1,7 @@
 plugins {
+    alias(libs.plugins.jetbrains.kotlin.android)
     id("freetableorder.android.library")
     id("freetableorder.android.hilt")
-    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {

@@ -18,6 +18,10 @@
         android:id="@+id/selectModeFragment"
         android:name="com.lst_1995.login.SelectModeFragment"
         android:label="fragment_select_mode"
-        tools:layout="@layout/fragment_select_mode" />
+        tools:layout="@layout/fragment_select_mode" >
+        <action
+            android:id="@+id/action_selectModeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
 </navigation>

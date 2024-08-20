@@ -2,8 +2,8 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    id("freetableorder.android.feature")
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("freetableorder.android.feature")
 }
 
 val localPropertiesFile = rootProject.file("local.properties")
@@ -14,7 +14,11 @@ android {
     namespace = "com.lst_1995.login"
 
     defaultConfig {
-        buildConfigField("String", "GOOGLE_CLIENT_ID", localProperties["google.client.id"] as String)
+        buildConfigField(
+            "String",
+            "GOOGLE_CLIENT_ID",
+            localProperties["google.client.id"] as String,
+        )
     }
 
     buildFeatures {
