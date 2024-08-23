@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.lst_1995.login.LoginViewModel" />
+        <variable
+            name="modeViewModel"
+            type="com.lst_1995.login.SelectModeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

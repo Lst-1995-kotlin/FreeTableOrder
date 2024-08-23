@@ -18,7 +18,4 @@ class SelectModeViewModel
                 userUseCase.savePlayMode(mode)
             }
         }
-        fun logOut() {
-
-        }
     }
