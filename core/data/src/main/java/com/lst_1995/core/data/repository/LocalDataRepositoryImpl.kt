@@ -2,7 +2,6 @@ package com.lst_1995.core.data.repository
 
 import android.util.Log
 import com.lst_1995.core.data.datasource.LocalDataStore
-import com.lst_1995.core.domain.model.ModeType
 import com.lst_1995.core.domain.model.ResultType
 import com.lst_1995.core.domain.repository.LocalDataRepository
 import kotlinx.coroutines.CoroutineScope
