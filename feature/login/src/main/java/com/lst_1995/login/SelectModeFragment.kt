@@ -12,8 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.fragment_select_mode) {
-    private val viewModel: LoginViewModel by viewModels()
-    private val modeViewModel: SelectModeViewModel by viewModels()
+    private val viewModel: SelectModeViewModel by viewModels()
 
     override fun onViewCreated(
         view: View,
@@ -21,7 +20,6 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
     ) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.modeViewModel = modeViewModel
 
         setObserver()
         setBackPress()

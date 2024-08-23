@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lst_1995.core.domain.model.ResultType
-import com.lst_1995.core.domain.usecase.UserUseCase
+import com.lst_1995.core.domain.usecase.AuthUseCase
+import com.lst_1995.core.domain.usecase.ModeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,14 +15,14 @@ import javax.inject.Inject
 class LoginViewModel
     @Inject
     constructor(
-        private val userUseCase: UserUseCase,
+        private val authUseCase: AuthUseCase,
     ) : ViewModel() {
         private val _loginState = MutableLiveData<Boolean>()
         val loginState: LiveData<Boolean> get() = _loginState
 
         fun firebaseAuthWithGoogle(idToken: String) {
             viewModelScope.launch {
-                when (userUseCase.firebaseAuthWithGoogle(idToken)) {
+                when (authUseCase.firebaseAuthWithGoogle(idToken)) {
                     ResultType.SUCCESS -> _loginState.value = true
                     ResultType.FAILURE -> _loginState.value = false
                 }
@@ -29,11 +30,11 @@ class LoginViewModel
         }
 
         fun autoLoginCheck() {
-            _loginState.value = userUseCase.autoLoginCheck()
+            _loginState.value = authUseCase.autoLoginCheck()
         }
 
         fun signOut() {
-            userUseCase.firebaseSignOut()
+            authUseCase.firebaseSignOut()
             autoLoginCheck()
         }
     }
