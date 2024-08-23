@@ -31,5 +31,5 @@ dependencies {
     implementation(libs.firebase.ui.auth)
     implementation(libs.google.services)
     implementation(libs.androidx.junit.ktx)
-    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit)
 }

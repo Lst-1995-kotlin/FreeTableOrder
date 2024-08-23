@@ -52,5 +52,5 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.androidx.junit.ktx)
-    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit)
 }
