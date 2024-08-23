@@ -10,8 +10,8 @@ class AndroidHiltPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("com.google.dagger.hilt.android")
                 apply("kotlin-kapt")
+                apply("com.google.dagger.hilt.android")
             }
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
