@@ -11,5 +11,12 @@ class ModeUseCase
     ) {
         suspend fun savePlayMode(mode: ModeType) = localDataRepository.savePlayMode(mode.name)
 
-        suspend fun getPlayMode() = localDataRepository.getPlayMode()
+        suspend fun getPlayMode(): ModeType {
+            return when(localDataRepository.getPlayMode()) {
+                ModeType.MANAGE.name -> ModeType.MANAGE
+                ModeType.TABLE.name -> ModeType.TABLE
+                ModeType.KITCHEN.name -> ModeType.KITCHEN
+                else -> ModeType.MANAGE
+            }
+        }
     }

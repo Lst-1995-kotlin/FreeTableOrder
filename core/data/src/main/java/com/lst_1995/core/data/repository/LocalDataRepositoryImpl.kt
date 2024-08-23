@@ -19,7 +19,7 @@ class LocalDataRepositoryImpl
             try {
                 CoroutineScope(Dispatchers.IO)
                     .async {
-                        Log.d("LocalDataRepositoryImpl", "모드 값: $mode")
+                        Log.d("LocalDataRepositoryImpl", "모드 $mode")
                         localDataStore.savePlayMode(mode)
                         ResultType.SUCCESS
                     }.await()
