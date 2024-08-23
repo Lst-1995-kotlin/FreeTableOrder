@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="tonalButton" parent="Widget.Material3.Button.TonalButton">
+    </style>
+    <style name="outlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+    </style>
 </resources>

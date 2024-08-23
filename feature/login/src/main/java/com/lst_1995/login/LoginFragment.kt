@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.identity.GetSignInIntentRequest
 import com.google.android.gms.auth.api.identity.Identity
@@ -54,8 +55,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     }
 
     private fun setObserver() {
-        viewModel.loginState.observe(viewLifecycleOwner) {
-            if (it) {
+        viewModel.loginState.observe(viewLifecycleOwner) { isLogin ->
+            if (isLogin == true) {
                 findNavController().navigate(R.id.action_loginFragment_to_selectModeFragment)
             }
         }

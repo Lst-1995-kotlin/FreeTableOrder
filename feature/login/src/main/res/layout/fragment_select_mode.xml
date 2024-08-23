@@ -15,18 +15,7 @@
         android:layout_height="match_parent"
         tools:context=".SelectModeFragment">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="632dp"
-            android:text="임시 로그아웃"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.appbar.MaterialToolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/materialToolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,6 +24,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="?android:attr/actionModeCloseDrawable"
             app:navigationOnClickListener="@{() -> viewModel.signOut()}" />
+
+        <Button
+            android:id="@+id/logOutBtn"
+            style="@style/outlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="@string/SWITCH_TO_NEW_ACCOUNT"
+            android:onClickListener="@{() -> viewModel.signOut()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
