@@ -17,8 +17,8 @@
         tools:context=".SelectModeFragment">
 
         <com.google.android.material.appbar.MaterialToolbar
-            style="@style/toolBar"
             android:id="@+id/materialToolbar"
+            style="@style/toolBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,9 +54,9 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClickListener="@{() -> viewModel.setManageMode()}"
                 app:srcCompat="@drawable/manage_accounts_24px" />
         </androidx.cardview.widget.CardView>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

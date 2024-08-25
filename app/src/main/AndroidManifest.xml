@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FreeTableOrder">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name="com.lst_1995.login.LoginActivity"
             android:exported="true">
             <intent-filter>
