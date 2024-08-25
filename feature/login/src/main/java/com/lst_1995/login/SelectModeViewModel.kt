@@ -41,9 +41,14 @@ class SelectModeViewModel
             viewModelScope.launch {
                 async {
                     authUseCase.firebaseSignOut()
+                    deleteMode()
                 }.await()
                 loginCheck()
             }
+        }
+
+        private fun deleteMode() {
+            savePlayMode(ModeType.NONE)
         }
 
         private fun loginCheck() {
