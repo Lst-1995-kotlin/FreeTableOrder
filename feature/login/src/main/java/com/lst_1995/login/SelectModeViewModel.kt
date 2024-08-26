@@ -47,6 +47,12 @@ class SelectModeViewModel
             }
         }
 
+        private fun getMode() {
+            viewModelScope.launch {
+                _selectMode.value = modeUseCase.getPlayMode()
+            }
+        }
+
         private fun deleteMode() {
             savePlayMode(ModeType.NONE)
         }
