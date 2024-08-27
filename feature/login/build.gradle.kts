@@ -1,6 +1,7 @@
 import java.io.FileInputStream
 import java.util.Properties
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("freetableorder.android.feature")
