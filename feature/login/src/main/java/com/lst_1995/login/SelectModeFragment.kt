@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.domain.model.ModeType
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.login.databinding.FragmentSelectModeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.fragment_select_mode) {
@@ -41,16 +45,22 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
                     )
                 }
             }
-            selectMode.observe(viewLifecycleOwner) { mode ->
-                if (mode != ModeType.NONE) {
-                    val intent = Intent()
-                    intent.component =
-                        ComponentName(
-                            "com.lst_1995.freetableorder",
-                            "com.lst_1995.freetableorder.MainActivity",
-                        )
-                    startActivity(intent)
-                    activity?.finish()
+        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.selectMode.collect { mode ->
+                        if (mode != ModeType.NONE.name) {
+                            val intent = Intent()
+                            intent.component =
+                                ComponentName(
+                                    "com.lst_1995.freetableorder",
+                                    "com.lst_1995.freetableorder.MainActivity",
+                                )
+                            startActivity(intent)
+                            activity?.finish()
+                        }
+                    }
                 }
             }
         }

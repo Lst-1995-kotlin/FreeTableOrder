@@ -4,7 +4,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import kotlinx.coroutines.flow.first
+import com.lst_1995.core.domain.model.ModeType
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -19,5 +20,8 @@ class LocalDataStore
             dataStore.edit { preferences -> preferences[playMode] = mode }
         }
 
-        suspend fun getPlayMode(): String = dataStore.data.map { preferences -> preferences[playMode] ?: "" }.first()
+        fun getPlayModeFlow(): Flow<String> =
+            dataStore.data.map { preferences ->
+                preferences[playMode] ?: ModeType.NONE.name
+            }
     }

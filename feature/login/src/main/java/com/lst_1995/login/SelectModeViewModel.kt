@@ -22,8 +22,7 @@ class SelectModeViewModel
         private val _loginState = MutableLiveData<Boolean>()
         val loginState: LiveData<Boolean> get() = _loginState
 
-        private val _selectMode = MutableLiveData<ModeType>()
-        val selectMode: LiveData<ModeType> get() = _selectMode
+        val selectMode = modeUseCase.getPlayMode()
 
         fun setManageMode() {
             savePlayMode(ModeType.MANAGE)
@@ -47,12 +46,6 @@ class SelectModeViewModel
             }
         }
 
-        private fun getMode() {
-            viewModelScope.launch {
-                _selectMode.value = modeUseCase.getPlayMode()
-            }
-        }
-
         private fun deleteMode() {
             savePlayMode(ModeType.NONE)
         }
@@ -66,7 +59,6 @@ class SelectModeViewModel
                 async {
                     modeUseCase.savePlayMode(mode)
                 }.await()
-                _selectMode.value = modeUseCase.getPlayMode()
             }
         }
     }

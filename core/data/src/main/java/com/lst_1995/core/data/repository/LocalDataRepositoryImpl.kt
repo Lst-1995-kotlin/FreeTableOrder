@@ -27,14 +27,5 @@ class LocalDataRepositoryImpl
                 ResultType.FAILURE
             }
 
-        override suspend fun getPlayMode(): String =
-            try {
-                CoroutineScope(Dispatchers.IO)
-                    .async {
-                        return@async localDataStore.getPlayMode()
-                    }.await()
-            } catch (e: Exception) {
-                Log.e("LocalDataRepositoryImpl", "LocalDataStore Get PlayMode Failed", e)
-                ""
-            }
+        override fun getPlayMode() = localDataStore.getPlayModeFlow()
     }
