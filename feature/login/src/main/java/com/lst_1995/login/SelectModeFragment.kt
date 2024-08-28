@@ -50,7 +50,8 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
                             )
                         }
                     }
-
+                }
+                launch {
                     viewModel.selectMode.collect { mode ->
                         if (mode != ModeType.NONE.name) {
                             val intent = Intent()
