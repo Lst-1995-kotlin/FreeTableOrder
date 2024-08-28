@@ -33,22 +33,24 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
     }
 
     private fun setObserver() {
-        viewModel.run {
-            loginState.observe(viewLifecycleOwner) { isLogin ->
-                if (isLogin == false) {
-                    val navOption =
-                        NavOptions.Builder().setPopUpTo(R.id.selectModeFragment, true).build()
-                    findNavController().navigate(
-                        R.id.action_selectModeFragment_to_loginFragment,
-                        null,
-                        navOption,
-                    )
-                }
-            }
-        }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
+                    viewModel.loginState.collect { state ->
+                        if (!state) {
+                            val navOption =
+                                NavOptions
+                                    .Builder()
+                                    .setPopUpTo(R.id.selectModeFragment, true)
+                                    .build()
+                            findNavController().navigate(
+                                R.id.action_selectModeFragment_to_loginFragment,
+                                null,
+                                navOption,
+                            )
+                        }
+                    }
+
                     viewModel.selectMode.collect { mode ->
                         if (mode != ModeType.NONE.name) {
                             val intent = Intent()

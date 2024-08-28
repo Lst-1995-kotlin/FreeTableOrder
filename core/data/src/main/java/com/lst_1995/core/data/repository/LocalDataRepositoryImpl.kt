@@ -2,7 +2,6 @@ package com.lst_1995.core.data.repository
 
 import android.util.Log
 import com.lst_1995.core.data.datasource.LocalDataStore
-import com.lst_1995.core.domain.model.ResultType
 import com.lst_1995.core.domain.repository.LocalDataRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,18 +13,17 @@ class LocalDataRepositoryImpl
     constructor(
         private val localDataStore: LocalDataStore,
     ) : LocalDataRepository {
-        override suspend fun savePlayMode(mode: String): ResultType =
+        override suspend fun savePlayMode(mode: String) {
             try {
                 CoroutineScope(Dispatchers.IO)
                     .async {
                         Log.d("LocalDataRepositoryImpl", "모드 $mode")
                         localDataStore.savePlayMode(mode)
-                        ResultType.SUCCESS
                     }.await()
             } catch (e: Exception) {
                 Log.e("LocalDataRepositoryImpl", "LocalDataStore Save PlayMode Failed", e)
-                ResultType.FAILURE
             }
+        }
 
-        override fun getPlayMode() = localDataStore.getPlayModeFlow()
+        override fun getPlayModeFlow() = localDataStore.getPlayModeFlow()
     }

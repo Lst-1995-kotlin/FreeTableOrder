@@ -1,12 +1,11 @@
 package com.lst_1995.core.domain.repository
 
-import com.lst_1995.core.domain.model.ResultType
-
+import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
-    fun firebaseAuthWithGoogle(idToken: String): ResultType
+    fun firebaseAuthWithGoogle(idToken: String)
 
-    fun autoLoginCheck(): Boolean
+    fun loginStateFlow(): Flow<Boolean>
 
     fun firebaseSignOut()
 }

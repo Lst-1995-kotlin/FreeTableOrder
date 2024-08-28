@@ -4,10 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.lst_1995.freetableorder.databinding.ActivityMainBinding
 import com.lst_1995.login.LoginActivity
 import com.lst_1995.login.SelectModeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -23,11 +27,15 @@ class MainActivity : AppCompatActivity() {
             viewModel.signOut()
         }
 
-        viewModel.loginState.observe(this) { isLogin ->
-            if (isLogin == false) {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.selectMode.collect { mode ->
+                    if (mode == "NONE") {
+                        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
             }
         }
     }

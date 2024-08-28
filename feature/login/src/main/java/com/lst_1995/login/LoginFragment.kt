@@ -8,6 +8,9 @@ import android.view.View
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.identity.GetSignInIntentRequest
 import com.google.android.gms.auth.api.identity.Identity
@@ -16,6 +19,7 @@ import com.google.android.gms.common.api.ApiException
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.login.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
@@ -48,7 +52,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        viewModel.autoLoginCheck()
         setObserver()
         setLoginWithGoogle()
     }
@@ -64,9 +67,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     }
 
     private fun setObserver() {
-        viewModel.loginState.observe(viewLifecycleOwner) { isLogin ->
-            if (isLogin == true) {
-                findNavController().navigate(R.id.action_loginFragment_to_selectModeFragment)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.loginState.collect { state ->
+                        if (state) {
+                            findNavController().navigate(R.id.action_loginFragment_to_selectModeFragment)
+                        }
+                    }
+                }
             }
         }
     }

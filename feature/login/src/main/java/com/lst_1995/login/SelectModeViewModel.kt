@@ -9,6 +9,7 @@ import com.lst_1995.core.domain.usecase.AuthUseCase
 import com.lst_1995.core.domain.usecase.ModeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,10 +20,8 @@ class SelectModeViewModel
         private val modeUseCase: ModeUseCase,
         private val authUseCase: AuthUseCase,
     ) : ViewModel() {
-        private val _loginState = MutableLiveData<Boolean>()
-        val loginState: LiveData<Boolean> get() = _loginState
-
-        val selectMode = modeUseCase.getPlayMode()
+        val loginState: Flow<Boolean> = authUseCase.loginStateFlow()
+        val selectMode: Flow<String> = modeUseCase.getPlayModeFlow()
 
         fun setManageMode() {
             savePlayMode(ModeType.MANAGE)
@@ -42,7 +41,6 @@ class SelectModeViewModel
                     authUseCase.firebaseSignOut()
                     deleteMode()
                 }.await()
-                loginCheck()
             }
         }
 
@@ -50,15 +48,9 @@ class SelectModeViewModel
             savePlayMode(ModeType.NONE)
         }
 
-        private fun loginCheck() {
-            if (!authUseCase.autoLoginCheck()) _loginState.value = false
-        }
-
         private fun savePlayMode(mode: ModeType) {
             viewModelScope.launch {
-                async {
-                    modeUseCase.savePlayMode(mode)
-                }.await()
+                modeUseCase.savePlayMode(mode)
             }
         }
     }

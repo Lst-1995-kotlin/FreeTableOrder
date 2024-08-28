@@ -11,5 +11,5 @@ class ModeUseCase
     ) {
         suspend fun savePlayMode(mode: ModeType) = localDataRepository.savePlayMode(mode.name)
 
-        fun getPlayMode() = localDataRepository.getPlayMode()
+        fun getPlayModeFlow() = localDataRepository.getPlayModeFlow()
     }

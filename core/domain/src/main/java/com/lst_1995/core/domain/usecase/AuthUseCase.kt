@@ -8,7 +8,7 @@ class AuthUseCase
     constructor(
         private val authRepository: AuthRepository,
     ) {
-        fun autoLoginCheck() = authRepository.autoLoginCheck()
+        fun loginStateFlow() = authRepository.loginStateFlow()
 
         fun firebaseSignOut() = authRepository.firebaseSignOut()
 
