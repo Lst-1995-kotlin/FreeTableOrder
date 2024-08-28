@@ -1,7 +1,5 @@
 package com.lst_1995.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lst_1995.core.domain.model.ModeType
