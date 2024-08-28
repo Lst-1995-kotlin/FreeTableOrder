@@ -53,6 +53,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         setLoginWithGoogle()
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.googleLoginIV.isClickable = true
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.googleLoginIV.isClickable = false
+    }
+
     private fun setObserver() {
         viewModel.loginState.observe(viewLifecycleOwner) { isLogin ->
             if (isLogin == true) {
