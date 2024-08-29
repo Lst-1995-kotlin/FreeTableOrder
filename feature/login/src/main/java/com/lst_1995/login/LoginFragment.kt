@@ -56,14 +56,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         setLoginWithGoogle()
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         binding.googleLoginIV.isClickable = true
-    }
-
-    override fun onStop() {
-        super.onStop()
-        binding.googleLoginIV.isClickable = false
     }
 
     private fun setObserver() {
@@ -82,6 +77,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
     private fun setLoginWithGoogle() {
         binding.googleLoginIV.setOnClickListener {
+            binding.googleLoginIV.isClickable = false
             googleWithSignIn()
         }
     }
