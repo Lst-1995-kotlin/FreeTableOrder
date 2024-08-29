@@ -6,4 +6,8 @@ interface LocalDataRepository {
     suspend fun savePlayMode(mode: String)
 
     fun getPlayModeFlow(): Flow<String>
+
+    suspend fun saveThemeMode(theme: Int)
+
+    fun getThemeMode(): Flow<Int>
 }

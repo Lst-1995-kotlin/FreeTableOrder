@@ -6,6 +6,7 @@ import com.lst_1995.core.domain.repository.LocalDataRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDataRepositoryImpl
@@ -26,4 +27,12 @@ class LocalDataRepositoryImpl
         }
 
         override fun getPlayModeFlow() = localDataStore.getPlayModeFlow()
+
+        override suspend fun saveThemeMode(theme: Int) {
+            localDataStore
+        }
+
+        override fun getThemeMode(): Flow<Int> {
+            TODO("Not yet implemented")
+        }
     }
