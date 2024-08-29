@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     api(libs.coroutines)
+    implementation(libs.inject)
 }

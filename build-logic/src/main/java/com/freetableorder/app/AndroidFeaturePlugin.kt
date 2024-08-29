@@ -23,11 +23,13 @@ class AndroidFeaturePlugin : Plugin<Project> {
                 }
             }
 
-            //val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+            val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             dependencies {
-                add("api", project(":core:ui"))
+                add("implementation", project(":core:ui"))
                 add("implementation", project(":core:domain"))
+                add("implementation", project(":core:data"))
+                add("implementation", libs.findLibrary("material").get())
             }
         }
     }

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="button" parent="Widget.Material3.Button.ElevatedButton">
 
+    <style name="tonalButton" parent="Widget.Material3.Button.TonalButton">
+
+    </style>
+
+    <style name="outlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+    </style>
+
+    <style name="toolBar" parent="Widget.Material3.Toolbar">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
     </style>
 </resources>

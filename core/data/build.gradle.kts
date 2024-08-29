@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.jetbrains.kotlin.android)
     id("freetableorder.android.library")
     id("freetableorder.android.hilt")
 }
@@ -13,4 +14,10 @@ android {
 
 dependencies {
     implementation(project(":core:domain"))
+    implementation(libs.datastore.preferences)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.google.services)
 }
