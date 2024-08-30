@@ -32,7 +32,7 @@ class LocalDataStore
             dataStore.edit { preferences -> preferences[theme] = mode }
         }
 
-        fun getThemeMode(): Flow<Int> =
+        fun getThemeModeFlow(): Flow<Int> =
             dataStore.data.map { preferences ->
                 preferences[theme]?.toInt() ?: AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }

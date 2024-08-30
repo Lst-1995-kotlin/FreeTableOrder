@@ -2,8 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.gms)
-    id("freetableorder.android.hilt")
     id("kotlin-kapt")
+    id("freetableorder.android.hilt")
 }
 
 android {
@@ -38,7 +38,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-        viewBinding = true
     }
 }
 
@@ -48,6 +47,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":feature:login"))
+    implementation(project(":feature:main"))
 
     // navigation
     implementation(libs.navigation.fragment.ktx)

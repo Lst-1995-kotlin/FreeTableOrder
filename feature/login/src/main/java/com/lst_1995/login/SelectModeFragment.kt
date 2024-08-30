@@ -58,7 +58,7 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
                             intent.component =
                                 ComponentName(
                                     "com.lst_1995.freetableorder",
-                                    "com.lst_1995.freetableorder.MainActivity",
+                                    "com.lst_1995.main.FeatureMainActivity",
                                 )
                             startActivity(intent)
                             activity?.finish()

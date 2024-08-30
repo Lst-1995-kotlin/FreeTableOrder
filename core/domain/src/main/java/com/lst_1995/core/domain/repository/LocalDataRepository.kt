@@ -9,5 +9,5 @@ interface LocalDataRepository {
 
     suspend fun saveThemeMode(theme: Int)
 
-    fun getThemeMode(): Flow<Int>
+    fun getThemeModeFlow(): Flow<Int>
 }
