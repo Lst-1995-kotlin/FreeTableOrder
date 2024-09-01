@@ -3,7 +3,6 @@ package com.lst_1995.main
 import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -28,7 +27,6 @@ class FeatureMainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        Log.d("ttttt", "$componentName")
         // 앱 테마 체크
         themeCheck()
         // 실행할 모드 확인하여 해당 모드 activity 실행
@@ -36,29 +34,40 @@ class FeatureMainActivity : AppCompatActivity() {
     }
 
     private fun themeCheck() {
-//        lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.themeMode.collect { theme ->
-//                    AppCompatDelegate.setDefaultNightMode(theme)
-//                }
-//            }
-//        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.themeMode.collect { theme ->
+                    AppCompatDelegate.setDefaultNightMode(theme)
+                }
+            }
+        }
     }
 
     private fun modeCheck() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.selectMode.collect { mode ->
-                    if (mode == ModeType.NONE.name) {
-                        val intent = Intent()
-                        intent.component =
-                            ComponentName(
-                                "com.lst_1995.freetableorder",
-                                "com.lst_1995.login.LoginActivity",
-                            )
-                        startActivity(intent)
-                        finish()
+                    val intent = Intent()
+                    when (mode) {
+                        ModeType.NONE.name -> {
+                            intent.component =
+                                ComponentName(
+                                    "com.lst_1995.freetableorder",
+                                    "com.lst_1995.main.FeatureMainActivity"
+                                )
+                        }
+                        ModeType.MANAGE.name -> {
+
+                        }
+                        ModeType.KITCHEN.name -> {
+
+                        }
+                        ModeType.TABLE.name -> {
+
+                        }
                     }
+                    startActivity(intent)
+                    finish()
                 }
             }
         }

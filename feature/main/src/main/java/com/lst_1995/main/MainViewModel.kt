@@ -7,6 +7,7 @@ import com.lst_1995.core.domain.usecase.AuthUseCase
 import com.lst_1995.core.domain.usecase.ModeUseCase
 import com.lst_1995.core.domain.usecase.ThemeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,12 +21,14 @@ class MainViewModel
     ) : ViewModel() {
         val loginState = authUseCase.loginStateFlow()
         val selectMode = modeUseCase.getPlayModeFlow()
-        //val themeMode = themeUseCase.getThemeModeFlow()
+        val themeMode = themeUseCase.getThemeModeFlow()
 
         fun signOut() {
             viewModelScope.launch {
-                authUseCase.firebaseSignOut()
-                modeUseCase.savePlayMode(ModeType.NONE)
+                async {
+                    authUseCase.firebaseSignOut()
+                    modeUseCase.savePlayMode(ModeType.NONE)
+                }.await()
             }
         }
     }
