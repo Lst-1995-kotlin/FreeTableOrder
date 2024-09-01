@@ -32,7 +32,5 @@ class LocalDataRepositoryImpl
             localDataStore.saveThemeMode(theme)
         }
 
-        override fun getThemeModeFlow(): Flow<Int> =
-            localDataStore.getThemeModeFlow()
-
+        override fun getThemeModeFlow(): Flow<Int> = localDataStore.getThemeModeFlow()
     }

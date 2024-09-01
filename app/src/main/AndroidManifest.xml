@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FreeTableOrder">
         <activity
-            android:name="com.lst_1995.login.LoginActivity"
+            android:name="com.lst_1995.main.FeatureMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
