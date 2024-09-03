@@ -48,6 +48,9 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":feature:login"))
     implementation(project(":feature:main"))
+    implementation(project(":feature:kitchen"))
+    implementation(project(":feature:manage"))
+    implementation(project(":feature:table"))
 
     // navigation
     implementation(libs.navigation.fragment.ktx)
