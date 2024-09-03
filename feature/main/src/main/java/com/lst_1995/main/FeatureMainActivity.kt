@@ -27,9 +27,7 @@ class FeatureMainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        // 앱 테마 체크
         themeCheck()
-        // 실행할 모드 확인하여 해당 모드 activity 실행
         modeCheck()
     }
 
