@@ -51,17 +51,32 @@ class FeatureMainActivity : AppCompatActivity() {
                             intent.component =
                                 ComponentName(
                                     "com.lst_1995.freetableorder",
-                                    "com.lst_1995.main.FeatureMainActivity"
+                                    "com.lst_1995.main.FeatureMainActivity",
                                 )
                         }
+
                         ModeType.MANAGE.name -> {
-
+                            intent.component =
+                                ComponentName(
+                                    "com.lst_1995.freetableorder",
+                                    "com.lst_1995.manage.ManageMainActivity",
+                                )
                         }
+
                         ModeType.KITCHEN.name -> {
-
+                            intent.component =
+                                ComponentName(
+                                    "com.lst_1995.freetableorder",
+                                    "com.lst_1995.kitchen.KitchenMainActivity",
+                                )
                         }
-                        ModeType.TABLE.name -> {
 
+                        ModeType.TABLE.name -> {
+                            intent.component =
+                                ComponentName(
+                                    "com.lst_1995.freetableorder",
+                                    "com.lst_1995.table.TableMainActivity",
+                                )
                         }
                     }
                     startActivity(intent)
