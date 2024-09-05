@@ -51,7 +51,7 @@ class FeatureMainActivity : AppCompatActivity() {
                             intent.component =
                                 ComponentName(
                                     "com.lst_1995.freetableorder",
-                                    "com.lst_1995.main.FeatureMainActivity",
+                                    "com.lst_1995.login.LoginActivity",
                                 )
                         }
 
