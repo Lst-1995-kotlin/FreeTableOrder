@@ -11,19 +11,21 @@
     <style name="toolBar" parent="Widget.Material3.Toolbar">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
         <item name="navigationIcon">?android:attr/actionModeCloseDrawable</item>
-        <item name="titleTextAppearance">@font/nanumsquareneo_extrabold</item>
+        <item name="titleMargin">0dp</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="font">@font/nanumsquareneo_bold</item>
     </style>
 
     <style name="cardView" parent="Widget.Material3.CardView.Elevated">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
-        <item name="elevation">4dp</item>
-        <item name="cardCornerRadius">12dp</item>
+        <item name="elevation">@dimen/elevation</item>
+        <item name="cardCornerRadius">@dimen/cardCornerRadius</item>
     </style>
 
     <style name="textView" parent="Widget.MaterialComponents.TextView">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
         <item name="font">@font/nanumsquareneo_regular</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/text_large</item>
     </style>
 </resources>
