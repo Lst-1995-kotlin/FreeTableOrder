@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="tonalButton" parent="Widget.Material3.Button.TonalButton">
-
+    <style name="outlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
     </style>
 
-    <style name="outlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="layout">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
     </style>
 
     <style name="toolBar" parent="Widget.Material3.Toolbar">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="navigationIcon">?android:attr/actionModeCloseDrawable</item>
+        <item name="titleTextAppearance">@font/nanumsquareneo_extrabold</item>
+    </style>
+
+    <style name="cardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="elevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+    </style>
+
+    <style name="textView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="font">@font/nanumsquareneo_regular</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>
