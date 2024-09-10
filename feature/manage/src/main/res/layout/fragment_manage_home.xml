@@ -16,7 +16,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="관리 메뉴" />
+            app:title="@string/setting" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -35,7 +35,7 @@
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="메뉴 관리" />
+                android:text="@string/menu_manage" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -53,7 +53,7 @@
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="매출 내역\n확인" />
+                android:text="@string/sales_history" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -70,10 +70,11 @@
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="테이블\n관리" />
+                android:text="@string/table_manage" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
             style="@style/cardView"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -86,10 +87,11 @@
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="앱 테마\n관리" />
+                android:text="@string/app_theme_manage" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
             style="@style/cardView"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -103,7 +105,23 @@
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="패스워드\n관리" />
+                android:text="@string/password_manage" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView5"
+            app:layout_constraintStart_toStartOf="@+id/cardView5"
+            app:layout_constraintTop_toTopOf="@+id/cardView4">
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/wait_screen_manage" />
         </androidx.cardview.widget.CardView>
 
 
