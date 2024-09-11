@@ -73,7 +73,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/appThemeManageCv"
+            android:id="@+id/themeManageCv"
             style="@style/cardView"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -82,11 +82,11 @@
             app:layout_constraintTop_toTopOf="@+id/tableManageCv">
 
             <TextView
-                android:id="@+id/appThemeManageTv"
+                android:id="@+id/themeManageTv"
                 style="@style/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/app_theme_manage" />
+                android:text="@string/theme_manage" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -112,8 +112,8 @@
             style="@style/cardView"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            app:layout_constraintEnd_toEndOf="@+id/appThemeManageCv"
-            app:layout_constraintStart_toStartOf="@+id/appThemeManageCv"
+            app:layout_constraintEnd_toEndOf="@+id/themeManageCv"
+            app:layout_constraintStart_toStartOf="@+id/themeManageCv"
             app:layout_constraintTop_toTopOf="@+id/passwordManageCv">
 
             <TextView
