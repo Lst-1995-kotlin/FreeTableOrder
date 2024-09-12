@@ -1,4 +1,4 @@
-package com.lst_1995.manage
+package com.lst_1995.manage.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

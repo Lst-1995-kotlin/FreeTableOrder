@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/manageHomeFragment"
-        android:name="com.lst_1995.manage.ManageHomeFragment"
+        android:name="com.lst_1995.manage.home.ManageHomeFragment"
         android:label="ManageHomeFragment" >
         <action
             android:id="@+id/action_manageHomeFragment_to_manageTableFragment"
@@ -30,32 +30,32 @@
     </fragment>
     <fragment
         android:id="@+id/managePasswordFragment"
-        android:name="com.lst_1995.manage.ManagePasswordFragment"
+        android:name="com.lst_1995.manage.password.ManagePasswordFragment"
         android:label="fragment_manage_password"
         tools:layout="@layout/fragment_manage_password" />
     <fragment
         android:id="@+id/manageTableFragment"
-        android:name="com.lst_1995.manage.ManageTableFragment"
+        android:name="com.lst_1995.manage.table.ManageTableFragment"
         android:label="fragment_manage_table"
         tools:layout="@layout/fragment_manage_table" />
     <fragment
         android:id="@+id/manageThemeFragment"
-        android:name="com.lst_1995.manage.ManageThemeFragment"
+        android:name="com.lst_1995.manage.theme.ManageThemeFragment"
         android:label="fragment_manage_theme"
         tools:layout="@layout/fragment_manage_theme" />
     <fragment
         android:id="@+id/manageWaitScreenFragment"
-        android:name="com.lst_1995.manage.ManageWaitScreenFragment"
+        android:name="com.lst_1995.manage.waitscreen.ManageWaitScreenFragment"
         android:label="fragment_manage_wait_screen"
         tools:layout="@layout/fragment_manage_wait_screen" />
     <fragment
         android:id="@+id/manuManageFragment"
-        android:name="com.lst_1995.manage.ManuManageFragment"
+        android:name="com.lst_1995.manage.menu.MenuManageFragment"
         android:label="fragment_manu_manage"
         tools:layout="@layout/fragment_manu_manage" />
     <fragment
         android:id="@+id/salesHistoryFragment"
-        android:name="com.lst_1995.manage.SalesHistoryFragment"
+        android:name="com.lst_1995.manage.sales_history.SalesHistoryFragment"
         android:label="fragment_sales_history"
         tools:layout="@layout/fragment_sales_history" />
 </navigation>

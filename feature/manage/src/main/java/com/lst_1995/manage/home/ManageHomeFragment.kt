@@ -1,4 +1,4 @@
-package com.lst_1995.manage
+package com.lst_1995.manage.home
 
 import android.content.ComponentName
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.domain.model.ModeType
 import com.lst_1995.core.ui.BaseFragment
+import com.lst_1995.manage.R
 import com.lst_1995.manage.databinding.FragmentManageHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
