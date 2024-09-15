@@ -1,5 +1,6 @@
 package com.lst_1995.core.data.repository
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.lst_1995.core.domain.repository.SettingRepository
@@ -18,6 +19,8 @@ class SettingRepositoryImpl
                     .collection(it)
                     .document("tablePassword")
                     .set(map)
+                    .addOnSuccessListener { Log.d("tttt", "DocumentSnapshot successfully written!") }
+                    .addOnFailureListener { e -> Log.w("tttt", "Error writing document", e) }
             }
         }
     }
