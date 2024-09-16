@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="setting">설정</string>
     <string name="menu_manage">메뉴 관리</string>
     <string name="table_manage">테이블\n관리</string>
@@ -7,7 +6,10 @@
     <string name="sales_history">매출 내역</string>
     <string name="theme_manage">테마\n관리</string>
     <string name="wait_screen_manage">대기화면\n관리</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- 테이블 관리 -->
+    <string name="table_password">테이블 패스워드</string>
+    <string name="table_password_check">테이블 패스워드 확인</string>
+    <string name="check">확인</string>
+    <string name="cancel">취소</string>
 </resources>

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="tonalButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="font">@font/nanumsquareneo_bold</item>
+    </style>
     <style name="outlinedButton" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="font">@font/nanumsquareneo_bold</item>
     </style>
-
+    <style name="floatingButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="font">@font/nanumsquareneo_bold</item>
+    </style>
+    <style name="defaultButton" parent="Widget.Material3.Button">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="font">@font/nanumsquareneo_bold</item>
+    </style>
     <style name="layout">
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
     </style>
@@ -26,6 +42,11 @@
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
         <item name="font">@font/nanumsquareneo_regular</item>
         <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+    <style name="textInputEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="android:theme">@style/Theme.FreeTableOrder</item>
+        <item name="font">@font/nanumsquareneo_regular</item>
         <item name="android:textSize">@dimen/text_large</item>
     </style>
 </resources>
