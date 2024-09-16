@@ -12,4 +12,10 @@
     <string name="table_password_check">테이블 패스워드 확인</string>
     <string name="check">확인</string>
     <string name="cancel">취소</string>
+    <string name="password_not_match">패스워드가 일치하지 않습니다.</string>
+    <string name="password_input">비밀번호를 입력해주세요.</string>
+    <string name="password_input_check">비밀번호 확인을 입력해주세요.</string>
+    <string name="password_length_check">비밀번호는 4자리 이상이어야 합니다.</string>
+    <string name="password_space_check">비밀번호에 공백을 사용할 수 없습니다.</string>
+    <string name="password_newline_check">비밀번호에 줄바꿈을 사용할 수 없습니다.</string>
 </resources>

@@ -8,5 +8,5 @@ class SettingUseCase
     constructor(
         private val settingRepository: SettingRepository,
     ) {
-        fun setTablePassword(password: String) = settingRepository.setTablePassword(password)
+        suspend fun setTablePassword(password: String) = settingRepository.setTablePassword(password)
     }
