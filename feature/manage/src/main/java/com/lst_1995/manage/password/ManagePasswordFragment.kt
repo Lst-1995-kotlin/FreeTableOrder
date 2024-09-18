@@ -29,14 +29,7 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
 
     private fun setObserver() {
         viewModel.complete.observe(viewLifecycleOwner) {
-            if (it) {
-                val dialog = MaterialAlertDialogBuilder(requireContext())
-                dialog.setMessage(R.string.password_changed_success)
-                dialog.setPositiveButton(R.string.check) { _, _ ->
-                    findNavController().popBackStack()
-                }
-                dialog.show()
-            }
+            if (it) createDialogForMessage(resources.getString(R.string.password_changed_success))
         }
     }
 

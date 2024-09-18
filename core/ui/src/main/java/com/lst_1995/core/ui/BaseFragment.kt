@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 abstract class BaseFragment<VB : ViewDataBinding>(
     @LayoutRes private val layoutId: Int,
@@ -31,6 +32,15 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    protected fun createDialogForMessage(message: String) {
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+        dialog.setMessage(message)
+        dialog.setPositiveButton(R.string.check) { _, _ ->
+            findNavController().popBackStack()
+        }
+        dialog.show()
     }
 
     protected fun setBackStackByToolbar(toolbar: MaterialToolbar) {
