@@ -17,7 +17,7 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        setupBackStack(binding.materialToolbar2)
     }
 }
