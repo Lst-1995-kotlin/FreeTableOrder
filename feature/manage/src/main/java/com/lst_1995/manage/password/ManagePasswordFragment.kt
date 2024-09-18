@@ -5,8 +5,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lst_1995.core.domain.usecase.PasswordErrorType
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
