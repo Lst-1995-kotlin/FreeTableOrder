@@ -32,7 +32,8 @@ class ManageHomeFragment : BaseFragment<FragmentManageHomeBinding>(R.layout.frag
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        setMoveFragment()
+        binding.viewModel = viewModel
+        setUpSelectMode()
         setChangeMode()
         setObserver()
     }
@@ -67,7 +68,7 @@ class ManageHomeFragment : BaseFragment<FragmentManageHomeBinding>(R.layout.frag
         }
     }
 
-    private fun setMoveFragment() {
+    private fun setUpSelectMode() {
         binding.run {
             menuManageCv.setOnClickListener {
                 navigateTo(R.id.action_manageHomeFragment_to_manuManageFragment, navOption)
