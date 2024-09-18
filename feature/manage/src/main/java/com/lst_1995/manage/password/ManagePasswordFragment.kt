@@ -2,7 +2,10 @@ package com.lst_1995.manage.password
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
+import com.lst_1995.core.domain.usecase.PasswordErrorType
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
 import com.lst_1995.manage.databinding.FragmentManagePasswordBinding
@@ -18,6 +21,26 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
     ) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        setupBackStack(binding.materialToolbar2)
+        setBackStack()
     }
+
+    private fun setBackStack() {
+        setBackStackByToolbar(binding.materialToolbar2)
+        setBackStackByButton(binding.cancelBtn)
+    }
+}
+
+@BindingAdapter("passwordMessage")
+fun TextView.passwordMessage(type: PasswordErrorType) {
+    val messageId =
+        when (type) {
+            PasswordErrorType.CHANGE_BLANK -> R.string.password_input_blank
+            PasswordErrorType.CHANGE_CHECK_BLANK -> R.string.password_input_check_blank
+            PasswordErrorType.NOT_MATCH -> R.string.password_not_match
+            PasswordErrorType.LENGTH_CHECK -> R.string.password_length_check
+            PasswordErrorType.NEWLINE_CHECK -> R.string.password_newline_check
+            PasswordErrorType.SPACE_CHECK -> R.string.password_space_check
+            PasswordErrorType.NONE -> R.string.password_check_success
+        }
+    this.text = resources.getString(messageId)
 }

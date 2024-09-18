@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -32,9 +33,19 @@ abstract class BaseFragment<VB : ViewDataBinding>(
         _binding = null
     }
 
-    protected fun setupBackStack(toolbar: MaterialToolbar) {
+    protected fun setBackStackByToolbar(toolbar: MaterialToolbar) {
         toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
+            setupBackStack()
         }
+    }
+
+    protected fun setBackStackByButton(button: Button) {
+        button.setOnClickListener {
+            setupBackStack()
+        }
+    }
+
+    private fun setupBackStack() {
+        findNavController().popBackStack()
     }
 }
