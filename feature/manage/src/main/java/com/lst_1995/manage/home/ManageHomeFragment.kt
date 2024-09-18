@@ -42,7 +42,7 @@ class ManageHomeFragment : BaseFragment<FragmentManageHomeBinding>(R.layout.frag
         binding.materialToolbar.setNavigationOnClickListener {
             viewModel.modeChangeNone()
         }
-        requireActivity().onBackPressedDispatcher.addCallback {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             viewModel.modeChangeNone()
         }
     }
