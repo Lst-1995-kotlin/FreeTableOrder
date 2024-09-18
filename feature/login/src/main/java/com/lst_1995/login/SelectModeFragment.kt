@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -26,8 +27,21 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
     ) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        setupBackStack(binding.materialToolbar)
+        setupToolbarNavigation()
+        setUpBackPress()
         setObserver()
+    }
+
+    private fun setUpBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            viewModel.signOut()
+        }
+    }
+
+    private fun setupToolbarNavigation() {
+        binding.materialToolbar.setNavigationOnClickListener {
+            viewModel.signOut()
+        }
     }
 
     private fun setObserver() {
