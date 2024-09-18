@@ -24,20 +24,25 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         setBackStack()
+        setObserver()
+    }
+
+    private fun setObserver() {
+        viewModel.complete.observe(viewLifecycleOwner) {
+            if (it) {
+                val dialog = MaterialAlertDialogBuilder(requireContext())
+                dialog.setMessage(R.string.password_changed_success)
+                dialog.setPositiveButton(R.string.check) { _, _ ->
+                    findNavController().popBackStack()
+                }
+                dialog.show()
+            }
+        }
     }
 
     private fun setBackStack() {
         setBackStackByToolbar(binding.materialToolbar2)
         setBackStackByButton(binding.cancelBtn)
-    }
-
-    private fun setCompleteDialog() {
-        val dialog = MaterialAlertDialogBuilder(requireContext())
-        dialog.setMessage("비밀번호가 변경되었습니다.")
-        dialog.setOnDismissListener {
-            findNavController().popBackStack()
-        }
-        dialog.show()
     }
 }
 

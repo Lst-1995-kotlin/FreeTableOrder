@@ -20,6 +20,9 @@ class ManagePasswordViewModel
         private val _passwordMessage = MutableLiveData(PasswordErrorType.NONE)
         val passwordMessage: LiveData<PasswordErrorType> get() = _passwordMessage
 
+        private val _complete = MutableLiveData(false)
+        val complete: LiveData<Boolean> get() = _complete
+
         val password = MutableLiveData<String>()
         val passwordCheck = MutableLiveData<String>()
         val loadingProgressVisibility = MutableLiveData(View.GONE)
@@ -29,6 +32,7 @@ class ManagePasswordViewModel
                 loadingProgressVisibility.value = View.VISIBLE
                 settingUseCase.setTablePassword(password.value!!)
                 loadingProgressVisibility.value = View.GONE
+                _complete.value = true
             }
         }
 
