@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lst_1995.core.domain.usecase.PasswordErrorType
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
@@ -28,6 +30,15 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
         setBackStackByToolbar(binding.materialToolbar2)
         setBackStackByButton(binding.cancelBtn)
     }
+
+    private fun setCompleteDialog() {
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+        dialog.setMessage("비밀번호가 변경되었습니다.")
+        dialog.setOnDismissListener {
+            findNavController().popBackStack()
+        }
+        dialog.show()
+    }
 }
 
 @BindingAdapter("passwordMessage")
@@ -37,9 +48,9 @@ fun TextView.passwordMessage(type: PasswordErrorType) {
             PasswordErrorType.CHANGE_BLANK -> R.string.password_input_blank
             PasswordErrorType.CHANGE_CHECK_BLANK -> R.string.password_input_check_blank
             PasswordErrorType.NOT_MATCH -> R.string.password_not_match
-            PasswordErrorType.LENGTH_CHECK -> R.string.password_length_check
-            PasswordErrorType.NEWLINE_CHECK -> R.string.password_newline_check
-            PasswordErrorType.SPACE_CHECK -> R.string.password_space_check
+            PasswordErrorType.LENGTH -> R.string.password_length
+            PasswordErrorType.NEWLINE -> R.string.password_newline
+            PasswordErrorType.SPACE -> R.string.password_space
             PasswordErrorType.NONE -> R.string.password_check_success
         }
     this.text = resources.getString(messageId)

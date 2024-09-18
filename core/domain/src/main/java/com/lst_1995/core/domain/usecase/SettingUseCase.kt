@@ -7,9 +7,9 @@ enum class PasswordErrorType {
     CHANGE_BLANK,
     CHANGE_CHECK_BLANK,
     NOT_MATCH,
-    LENGTH_CHECK,
-    NEWLINE_CHECK,
-    SPACE_CHECK,
+    LENGTH,
+    NEWLINE,
+    SPACE,
     NONE,
 }
 
@@ -30,9 +30,9 @@ class SettingUseCase
                 password.isNullOrEmpty() -> PasswordErrorType.CHANGE_BLANK
                 passwordCheck.isNullOrEmpty() -> PasswordErrorType.CHANGE_CHECK_BLANK
                 password != passwordCheck -> PasswordErrorType.NOT_MATCH
-                password.length < 4 -> PasswordErrorType.LENGTH_CHECK
-                password.contains("\n") -> PasswordErrorType.NEWLINE_CHECK
-                password.contains(" ") -> PasswordErrorType.SPACE_CHECK
+                password.length < 4 -> PasswordErrorType.LENGTH
+                password.contains("\n") -> PasswordErrorType.NEWLINE
+                password.contains(" ") -> PasswordErrorType.SPACE
                 else -> PasswordErrorType.NONE
             }
     }
