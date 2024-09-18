@@ -40,10 +40,10 @@ class ManageHomeFragment : BaseFragment<FragmentManageHomeBinding>(R.layout.frag
 
     private fun setChangeMode() {
         binding.materialToolbar.setNavigationOnClickListener {
-            viewModel.changeMode()
+            viewModel.modeChangeNone()
         }
         requireActivity().onBackPressedDispatcher.addCallback {
-            viewModel.changeMode()
+            viewModel.modeChangeNone()
         }
     }
 

@@ -16,7 +16,7 @@ class ManageHomeViewModel
     ) : ViewModel() {
         val loginState = modeUseCase.getPlayModeFlow()
 
-        fun changeMode() {
+        fun modeChangeNone() {
             viewModelScope.launch {
                 modeUseCase.savePlayMode(ModeType.NONE)
             }
