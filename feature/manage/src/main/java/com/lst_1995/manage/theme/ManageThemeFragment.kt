@@ -1,19 +1,22 @@
 package com.lst_1995.manage.theme
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
+import com.lst_1995.manage.databinding.FragmentManageThemeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ManageThemeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+@AndroidEntryPoint
+class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fragment_manage_theme) {
+    private val viewModel: ManageThemeViewModel by viewModels()
+
+    override fun onViewCreated(
+        view: View,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_manage_theme, container, false)
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
     }
 }
