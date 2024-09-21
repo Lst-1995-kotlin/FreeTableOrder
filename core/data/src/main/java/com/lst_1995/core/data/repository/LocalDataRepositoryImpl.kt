@@ -27,10 +27,4 @@ class LocalDataRepositoryImpl
         }
 
         override fun getPlayModeFlow() = localDataStore.getPlayModeFlow()
-
-        override suspend fun saveThemeMode(theme: Int) {
-            localDataStore.saveThemeMode(theme)
-        }
-
-        override fun getThemeModeFlow(): Flow<Int> = localDataStore.getThemeModeFlow()
     }
