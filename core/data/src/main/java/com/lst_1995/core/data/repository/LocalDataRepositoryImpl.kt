@@ -6,7 +6,6 @@ import com.lst_1995.core.domain.repository.LocalDataRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDataRepositoryImpl
