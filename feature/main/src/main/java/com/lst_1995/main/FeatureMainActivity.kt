@@ -27,18 +27,7 @@ class FeatureMainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        themeCheck()
         modeCheck()
-    }
-
-    private fun themeCheck() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.themeMode.collect { theme ->
-                    AppCompatDelegate.setDefaultNightMode(theme)
-                }
-            }
-        }
     }
 
     private fun modeCheck() {
