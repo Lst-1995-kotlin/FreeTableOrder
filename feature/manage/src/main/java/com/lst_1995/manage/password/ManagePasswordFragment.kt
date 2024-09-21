@@ -47,6 +47,7 @@ fun TextView.passwordMessage(type: PasswordErrorType) {
             PasswordErrorType.LENGTH -> R.string.password_length
             PasswordErrorType.NEWLINE -> R.string.password_newline
             PasswordErrorType.SPACE -> R.string.password_space
+            PasswordErrorType.NETWORK -> R.string.password_server
             PasswordErrorType.NONE -> R.string.password_check_success
         }
     this.text = resources.getString(messageId)

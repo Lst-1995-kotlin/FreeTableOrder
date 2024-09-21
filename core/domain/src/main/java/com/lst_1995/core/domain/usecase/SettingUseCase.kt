@@ -1,6 +1,7 @@
 package com.lst_1995.core.domain.usecase
 
 import com.lst_1995.core.domain.repository.SettingRepository
+import com.lst_1995.core.domain.util.NetworkManager
 import javax.inject.Inject
 
 enum class PasswordErrorType {
@@ -10,6 +11,7 @@ enum class PasswordErrorType {
     LENGTH,
     NEWLINE,
     SPACE,
+    NETWORK,
     NONE,
 }
 
@@ -17,10 +19,9 @@ class SettingUseCase
     @Inject
     constructor(
         private val settingRepository: SettingRepository,
+        private val networkManager: NetworkManager,
     ) {
-        suspend fun setTablePassword(password: String) {
-            settingRepository.setTablePassword(password)
-        }
+        suspend fun setTablePassword(password: String) = settingRepository.setTablePassword(password)
 
         fun passwordCheck(
             password: String?,
@@ -33,6 +34,7 @@ class SettingUseCase
                 password.length < 4 -> PasswordErrorType.LENGTH
                 password.contains("\n") -> PasswordErrorType.NEWLINE
                 password.contains(" ") -> PasswordErrorType.SPACE
+                !networkManager.isNetworkAvailable() -> PasswordErrorType.NETWORK
                 else -> PasswordErrorType.NONE
             }
     }
