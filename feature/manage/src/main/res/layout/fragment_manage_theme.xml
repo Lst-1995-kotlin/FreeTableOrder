@@ -93,19 +93,19 @@
                     android:layout_marginTop="12dp">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/systemDefaultButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/system_default_mode" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/lightThemeButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/light_mode" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/radioButton5"
+                        android:id="@+id/darkThemeButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/dark_mode" />
