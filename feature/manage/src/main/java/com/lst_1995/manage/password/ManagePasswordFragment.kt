@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
-import com.lst_1995.core.domain.usecase.PasswordErrorType
+import com.lst_1995.core.domain.usecase.PasswordEvent
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
 import com.lst_1995.manage.databinding.FragmentManagePasswordBinding
@@ -38,17 +38,17 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
 }
 
 @BindingAdapter("passwordMessage")
-fun TextView.passwordMessage(type: PasswordErrorType) {
+fun TextView.passwordMessage(event: PasswordEvent) {
     val messageId =
-        when (type) {
-            PasswordErrorType.CHANGE_BLANK -> R.string.password_input_blank
-            PasswordErrorType.CHANGE_CHECK_BLANK -> R.string.password_input_check_blank
-            PasswordErrorType.NOT_MATCH -> R.string.password_not_match
-            PasswordErrorType.LENGTH -> R.string.password_length
-            PasswordErrorType.NEWLINE -> R.string.password_newline
-            PasswordErrorType.SPACE -> R.string.password_space
-            PasswordErrorType.NETWORK -> R.string.password_server
-            PasswordErrorType.NONE -> R.string.password_check_success
+        when (event) {
+            PasswordEvent.CHANGE_BLANK -> R.string.password_input_blank
+            PasswordEvent.CHANGE_CHECK_BLANK -> R.string.password_input_check_blank
+            PasswordEvent.NOT_MATCH -> R.string.password_not_match
+            PasswordEvent.LENGTH -> R.string.password_length
+            PasswordEvent.NEWLINE -> R.string.password_newline
+            PasswordEvent.SPACE -> R.string.password_space
+            PasswordEvent.NETWORK -> R.string.password_server
+            PasswordEvent.NONE -> R.string.password_check_success
         }
     this.text = resources.getString(messageId)
 }

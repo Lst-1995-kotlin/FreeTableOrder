@@ -37,9 +37,12 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     protected fun createDialogForMessage(message: String) {
         val dialog = MaterialAlertDialogBuilder(requireContext())
         dialog.setMessage(message)
-        dialog.setPositiveButton(R.string.check) { _, _ ->
-            findNavController().popBackStack()
-        }
+        dialog
+            .setPositiveButton(R.string.check) { _, _ ->
+                findNavController().popBackStack()
+            }.setOnDismissListener {
+                findNavController().popBackStack()
+            }
         dialog.show()
     }
 
