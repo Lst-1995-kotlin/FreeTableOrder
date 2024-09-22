@@ -29,7 +29,7 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
     private fun setObserver() {
         viewModel.passwordMessage.observe(viewLifecycleOwner) {
             if (it == PasswordEvent.CHANGE_SUCCESS) {
-                crateToastMessage(resources.getString(R.string.password_changed_success))
+                showToastMessage(resources.getString(R.string.password_changed_success))
                 findNavController().popBackStack()
             }
         }
