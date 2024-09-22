@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -34,16 +35,8 @@ abstract class BaseFragment<VB : ViewDataBinding>(
         _binding = null
     }
 
-    protected fun createDialogForMessage(message: String) {
-        val dialog = MaterialAlertDialogBuilder(requireContext())
-        dialog.setMessage(message)
-        dialog
-            .setPositiveButton(R.string.check) { _, _ ->
-                findNavController().popBackStack()
-            }.setOnDismissListener {
-                findNavController().popBackStack()
-            }
-        dialog.show()
+    protected fun crateToastMessage(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     protected fun setBackStackByToolbar(toolbar: MaterialToolbar) {

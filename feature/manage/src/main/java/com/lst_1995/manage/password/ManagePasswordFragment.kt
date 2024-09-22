@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.domain.usecase.PasswordEvent
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
@@ -26,8 +27,11 @@ class ManagePasswordFragment : BaseFragment<FragmentManagePasswordBinding>(R.lay
     }
 
     private fun setObserver() {
-        viewModel.complete.observe(viewLifecycleOwner) {
-            if (it) createDialogForMessage(resources.getString(R.string.password_changed_success))
+        viewModel.passwordMessage.observe(viewLifecycleOwner) {
+            if (it == PasswordEvent.CHANGE_SUCCESS) {
+                crateToastMessage(resources.getString(R.string.password_changed_success))
+                findNavController().popBackStack()
+            }
         }
     }
 
@@ -49,6 +53,7 @@ fun TextView.passwordMessage(event: PasswordEvent) {
             PasswordEvent.SPACE -> R.string.password_space
             PasswordEvent.NETWORK -> R.string.password_server
             PasswordEvent.NONE -> R.string.password_check_success
+            PasswordEvent.CHANGE_SUCCESS -> R.string.password_changed_success
         }
     this.text = resources.getString(messageId)
 }

@@ -11,7 +11,7 @@
     <!-- 테이블 관리 -->
     <string name="new_table_password">새 테이블 비밀번호</string>
     <string name="confirm_new_table_password">새 테이블 비밀번호 확인</string>
-    <string name="password_check_success"> </string>"
+    <string name="password_check_success"> </string>
     <string name="password_not_match">패스워드가 일치하지 않습니다.</string>
     <string name="password_input_blank">비밀번호를 입력해주세요.</string>
     <string name="password_input_check_blank">비밀번호 확인을 입력해주세요.</string>

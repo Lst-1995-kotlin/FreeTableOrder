@@ -13,9 +13,10 @@ enum class PasswordEvent {
     SPACE,
     NETWORK,
     NONE,
+    CHANGE_SUCCESS
 }
 
-class SettingUseCase
+class PasswordUseCase
     @Inject
     constructor(
         private val settingRepository: SettingRepository,
