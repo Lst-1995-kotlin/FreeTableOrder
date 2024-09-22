@@ -12,7 +12,7 @@ class ThemeUseCase
             settingRepository.saveAppTheme(theme)
         }
 
-        suspend fun loadAppTheme() {
-            settingRepository.loadAppTheme()
+        suspend fun loadAppThemeFlow() {
+            settingRepository.loadAppThemeFlow()
         }
     }
