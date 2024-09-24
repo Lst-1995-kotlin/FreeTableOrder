@@ -88,12 +88,13 @@
                     android:text="@string/theme_setting" />
 
                 <RadioGroup
+                    android:id="@+id/themeRg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/systemDefaultButton"
+                        android:id="@+id/systemDefaultThemeButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/system_default_mode" />
