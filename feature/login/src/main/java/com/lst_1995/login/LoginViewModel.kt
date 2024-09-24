@@ -3,8 +3,6 @@ package com.lst_1995.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lst_1995.core.domain.usecase.AuthUseCase
-import com.lst_1995.core.domain.usecase.Theme
-import com.lst_1995.core.domain.usecase.ThemeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
