@@ -32,8 +32,8 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    viewModel.appTheme.collect {
-                        when (it) {
+                    viewModel.appTheme.collect { theme ->
+                        when (theme) {
                             Theme.LIGHT -> {
                                 binding.lightThemeButton.isChecked = true
                                 changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
