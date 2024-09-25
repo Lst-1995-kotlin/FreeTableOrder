@@ -58,13 +58,13 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     private suspend fun observerNetworkState() {
         networkManager.networkStateFlow().collect { state ->
             if (!state) {
-                val dialog = MaterialAlertDialogBuilder(requireContext())
-                dialog.setMessage(resources.getString(R.string.network_error_message))
-                dialog.setPositiveButton(resources.getString(R.string.check)) { dialog, _ ->
+                val networkDialog = MaterialAlertDialogBuilder(requireContext())
+                networkDialog.setMessage(resources.getString(R.string.network_error_message))
+                networkDialog.setPositiveButton(resources.getString(R.string.check)) { dialog, _ ->
                     dialog.dismiss()
                     requireActivity().finish()
                 }
-                dialog.show()
+                networkDialog.show()
             }
         }
     }
