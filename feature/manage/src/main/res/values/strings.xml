@@ -19,7 +19,6 @@
     <string name="password_space">비밀번호에 공백을 사용할 수 없습니다.</string>
     <string name="password_newline">비밀번호에 줄바꿈을 사용할 수 없습니다.</string>
     <string name="password_changed_success">비밀번호가 변경되었습니다.</string>
-    <string name="password_server">서버와 통신 중 오류가 발생했습니다. 다시 시도해주세요.</string>
     <!-- 테마 관리 -->
     <string name="dynamic_color_use">다이나믹 컬러 사용</string>
     <string name="dynamic_color_yes">예</string>

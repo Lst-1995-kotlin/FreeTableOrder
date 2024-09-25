@@ -26,6 +26,11 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
         binding.viewModel = viewModel
         observeTheme()
         setRadioButton()
+        setBackStack()
+    }
+
+    private fun setBackStack() {
+        setBackStackByToolbar(binding.materialToolbar3)
     }
 
     private fun observeTheme() {
@@ -38,10 +43,12 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
                                 binding.lightThemeButton.isChecked = true
                                 changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
                             }
+
                             Theme.DARK -> {
                                 binding.darkThemeButton.isChecked = true
                                 changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
                             }
+
                             Theme.SYSTEM -> {
                                 binding.systemDefaultThemeButton.isChecked = true
                                 changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)

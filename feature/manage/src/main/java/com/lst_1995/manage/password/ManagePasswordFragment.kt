@@ -51,7 +51,6 @@ fun TextView.passwordMessage(event: PasswordEvent) {
             PasswordEvent.LENGTH -> R.string.password_length
             PasswordEvent.NEWLINE -> R.string.password_newline
             PasswordEvent.SPACE -> R.string.password_space
-            PasswordEvent.NETWORK -> R.string.password_server
             PasswordEvent.NONE -> R.string.password_check_success
             PasswordEvent.CHANGE_SUCCESS -> R.string.password_changed_success
         }

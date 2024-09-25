@@ -1,7 +1,6 @@
 package com.lst_1995.core.domain.usecase
 
 import com.lst_1995.core.domain.repository.SettingRepository
-import com.lst_1995.core.domain.util.NetworkManager
 import javax.inject.Inject
 
 enum class PasswordEvent {
@@ -11,16 +10,14 @@ enum class PasswordEvent {
     LENGTH,
     NEWLINE,
     SPACE,
-    NETWORK,
     NONE,
-    CHANGE_SUCCESS
+    CHANGE_SUCCESS,
 }
 
 class PasswordUseCase
     @Inject
     constructor(
         private val settingRepository: SettingRepository,
-        private val networkManager: NetworkManager,
     ) {
         suspend fun setTablePassword(password: String) = settingRepository.setTablePassword(password)
 
@@ -35,7 +32,6 @@ class PasswordUseCase
                 password.length < 4 -> PasswordEvent.LENGTH
                 password.contains("\n") -> PasswordEvent.NEWLINE
                 password.contains(" ") -> PasswordEvent.SPACE
-                !networkManager.isNetworkAvailable() -> PasswordEvent.NETWORK
                 else -> PasswordEvent.NONE
             }
     }

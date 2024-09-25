@@ -86,7 +86,7 @@ class SettingRepositoryImpl
                                         } ?: Theme.SYSTEM
                                     trySend(theme)
                                 }
-                    }
+                    } ?: trySend(Theme.SYSTEM)
                 } catch (e: Exception) {
                     trySend(Theme.SYSTEM)
                 }

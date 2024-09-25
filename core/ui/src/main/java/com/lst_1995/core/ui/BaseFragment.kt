@@ -10,14 +10,24 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.lst_1995.core.domain.util.NetworkManager
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 abstract class BaseFragment<VB : ViewDataBinding>(
     @LayoutRes private val layoutId: Int,
 ) : Fragment() {
     private var _binding: VB? = null
     protected val binding get() = _binding!!
+
+    @Inject
+    lateinit var networkManager: NetworkManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +36,26 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+        setNetworkStateObserver()
         return binding.root
+    }
+
+    private fun setNetworkStateObserver() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                networkManager.networkStateFlow().collect { state ->
+                    if (!state) {
+                        val dialog = MaterialAlertDialogBuilder(requireContext())
+                        dialog.setMessage(resources.getString(R.string.network_error_message))
+                        dialog.setPositiveButton(resources.getString(R.string.check)) { dialog, _ ->
+                            dialog.dismiss()
+                            requireActivity().finish()
+                        }
+                        dialog.show()
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -35,7 +64,7 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     }
 
     protected fun showToastMessage(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     protected fun setBackStackByToolbar(toolbar: MaterialToolbar) {
