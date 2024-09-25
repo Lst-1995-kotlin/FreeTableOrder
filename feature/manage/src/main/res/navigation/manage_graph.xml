@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/manage_graph"
+    app:startDestination="@id/manageHomeFragment">
+
+    <fragment
+        android:id="@+id/manageHomeFragment"
+        android:name="com.lst_1995.manage.home.ManageHomeFragment"
+        android:label="ManageHomeFragment" >
+        <action
+            android:id="@+id/action_manageHomeFragment_to_manageTableFragment"
+            app:destination="@id/manageTableFragment" />
+        <action
+            android:id="@+id/action_manageHomeFragment_to_salesHistoryFragment"
+            app:destination="@id/salesHistoryFragment" />
+        <action
+            android:id="@+id/action_manageHomeFragment_to_managePasswordFragment"
+            app:destination="@id/managePasswordFragment" />
+        <action
+            android:id="@+id/action_manageHomeFragment_to_manageThemeFragment"
+            app:destination="@id/manageThemeFragment" />
+        <action
+            android:id="@+id/action_manageHomeFragment_to_manuManageFragment"
+            app:destination="@id/manuManageFragment" />
+        <action
+            android:id="@+id/action_manageHomeFragment_to_manageWaitScreenFragment"
+            app:destination="@id/manageWaitScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/managePasswordFragment"
+        android:name="com.lst_1995.manage.password.ManagePasswordFragment"
+        android:label="fragment_manage_password"
+        tools:layout="@layout/fragment_manage_password" />
+    <fragment
+        android:id="@+id/manageTableFragment"
+        android:name="com.lst_1995.manage.table.ManageTableFragment"
+        android:label="fragment_manage_table"
+        tools:layout="@layout/fragment_manage_table" />
+    <fragment
+        android:id="@+id/manageThemeFragment"
+        android:name="com.lst_1995.manage.theme.ManageThemeFragment"
+        android:label="fragment_manage_theme"
+        tools:layout="@layout/fragment_manage_theme" />
+    <fragment
+        android:id="@+id/manageWaitScreenFragment"
+        android:name="com.lst_1995.manage.waitscreen.ManageWaitScreenFragment"
+        android:label="fragment_manage_wait_screen"
+        tools:layout="@layout/fragment_manage_wait_screen" />
+    <fragment
+        android:id="@+id/manuManageFragment"
+        android:name="com.lst_1995.manage.menu.MenuManageFragment"
+        android:label="fragment_manu_manage"
+        tools:layout="@layout/fragment_manu_manage" />
+    <fragment
+        android:id="@+id/salesHistoryFragment"
+        android:name="com.lst_1995.manage.sales_history.SalesHistoryFragment"
+        android:label="fragment_sales_history"
+        tools:layout="@layout/fragment_sales_history" />
+</navigation>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.domain.model.ModeType
+import com.lst_1995.core.domain.usecase.Theme
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.login.databinding.FragmentSelectModeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,9 +29,46 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
     ) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-
+        setupToolbarNavigation()
+        setUpBackPress()
         setObserver()
-        setBackPress()
+        loadTheme()
+    }
+
+    private fun loadTheme() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.themeState.collect { theme ->
+                        when (theme) {
+                            Theme.LIGHT -> {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                            }
+
+                            Theme.DARK -> {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                            }
+
+                            Theme.SYSTEM -> {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setUpBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            viewModel.signOut()
+        }
+    }
+
+    private fun setupToolbarNavigation() {
+        binding.materialToolbar.setNavigationOnClickListener {
+            viewModel.signOut()
+        }
     }
 
     private fun setObserver() {
@@ -58,7 +97,7 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
                             intent.component =
                                 ComponentName(
                                     "com.lst_1995.freetableorder",
-                                    "com.lst_1995.freetableorder.MainActivity",
+                                    "com.lst_1995.main.FeatureMainActivity",
                                 )
                             startActivity(intent)
                             activity?.finish()
@@ -66,12 +105,6 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
                     }
                 }
             }
-        }
-    }
-
-    private fun setBackPress() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            viewModel.signOut()
         }
     }
 }

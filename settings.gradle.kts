@@ -22,3 +22,7 @@ include(":core:ui")
 include(":core:data")
 
 include(":feature:login")
+include(":feature:main")
+include(":feature:manage")
+include(":feature:kitchen")
+include(":feature:table")

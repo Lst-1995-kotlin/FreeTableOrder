@@ -20,4 +20,5 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.google.services)
+    implementation(libs.androidx.appcompat)
 }

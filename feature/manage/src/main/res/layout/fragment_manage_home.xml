@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.lst_1995.manage.home.ManageHomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            style="@style/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/setting" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menuManageCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/menuManageTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/menu_manage" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/salesHistoryCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/menuManageCv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/menuManageCv">
+
+            <TextView
+                android:id="@+id/salesHistoryTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/sales_history" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tableManageCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="@+id/menuManageCv"
+            app:layout_constraintTop_toBottomOf="@+id/menuManageCv">
+
+            <TextView
+                android:id="@+id/tableManageTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/table_manage" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/themeManageCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/salesHistoryCv"
+            app:layout_constraintStart_toStartOf="@+id/salesHistoryCv"
+            app:layout_constraintTop_toTopOf="@+id/tableManageCv">
+
+            <TextView
+                android:id="@+id/themeManageTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/theme_manage" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/passwordManageCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/tableManageCv"
+            app:layout_constraintStart_toStartOf="@+id/tableManageCv"
+            app:layout_constraintTop_toBottomOf="@+id/tableManageCv">
+
+            <TextView
+                android:id="@+id/passwordManageTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/password_manage" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/waitScreenManageCv"
+            style="@style/cardView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/themeManageCv"
+            app:layout_constraintStart_toStartOf="@+id/themeManageCv"
+            app:layout_constraintTop_toTopOf="@+id/passwordManageCv">
+
+            <TextView
+                android:id="@+id/waitScreenManageTv"
+                style="@style/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/wait_screen_manage" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -27,7 +27,11 @@
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/kitchen" />
             <option value="$PROJECT_DIR$/feature/login" />
+            <option value="$PROJECT_DIR$/feature/main" />
+            <option value="$PROJECT_DIR$/feature/manage" />
+            <option value="$PROJECT_DIR$/feature/table" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

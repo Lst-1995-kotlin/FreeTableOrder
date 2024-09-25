@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -54,11 +55,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 
         setObserver()
         setLoginWithGoogle()
+        setSystemDefaultTheme()
     }
 
     override fun onResume() {
         super.onResume()
         binding.googleLoginIV.isClickable = true
+    }
+
+    private fun setSystemDefaultTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
 
     private fun setObserver() {

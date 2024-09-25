@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:transitionGroup="true"
@@ -24,7 +25,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="?android:attr/actionModeCloseDrawable"
             app:navigationOnClickListener="@{() -> viewModel.signOut()}"
             app:title="@string/SELECT_MODE" />
 
@@ -42,6 +42,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.cardview.widget.CardView
+            style="@style/cardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="64dp"

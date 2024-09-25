@@ -1,0 +1,30 @@
+<resources>
+    <string name="setting">설정</string>
+    <string name="menu_manage">메뉴 관리</string>
+    <string name="table_manage">테이블\n관리</string>
+    <string name="password_manage">패스워드\n관리</string>
+    <string name="sales_history">매출 내역</string>
+    <string name="theme_manage">테마\n관리</string>
+    <string name="wait_screen_manage">대기화면\n관리</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 테이블 관리 -->
+    <string name="new_table_password">새 테이블 비밀번호</string>
+    <string name="confirm_new_table_password">새 테이블 비밀번호 확인</string>
+    <string name="password_check_success"> </string>
+    <string name="password_not_match">패스워드가 일치하지 않습니다.</string>
+    <string name="password_input_blank">비밀번호를 입력해주세요.</string>
+    <string name="password_input_check_blank">비밀번호 확인을 입력해주세요.</string>
+    <string name="password_length">비밀번호는 4자리 이상이어야 합니다.</string>
+    <string name="password_space">비밀번호에 공백을 사용할 수 없습니다.</string>
+    <string name="password_newline">비밀번호에 줄바꿈을 사용할 수 없습니다.</string>
+    <string name="password_changed_success">비밀번호가 변경되었습니다.</string>
+    <!-- 테마 관리 -->
+    <string name="dynamic_color_use">다이나믹 컬러 사용</string>
+    <string name="dynamic_color_yes">예</string>
+    <string name="dynamic_color_no">아니오</string>
+    <string name="theme_setting">테마 설정</string>"
+    <string name="dark_mode">다크 모드</string>
+    <string name="light_mode">라이트 모드</string>
+    <string name="system_default_mode">시스템 설정 사용</string>
+</resources>
