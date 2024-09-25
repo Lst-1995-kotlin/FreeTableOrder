@@ -28,66 +28,66 @@ class FeatureMainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        themeCheck()
-        modeCheck()
+        startCheck()
     }
 
-    private fun themeCheck() {
+    private fun startCheck() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.theme.collect {
-                    when (it) {
-                        Theme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                        Theme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                        Theme.SYSTEM -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                    }
-                }
+                launch { themeCheck() }
+                launch { modeCheck() }
             }
         }
     }
 
-    private fun modeCheck() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.selectMode.collect { mode ->
-                    val intent = Intent()
-                    when (mode) {
-                        ModeType.NONE.name -> {
-                            intent.component =
-                                ComponentName(
-                                    "com.lst_1995.freetableorder",
-                                    "com.lst_1995.login.LoginActivity",
-                                )
-                        }
+    private suspend fun themeCheck() {
+        viewModel.theme.collect { theme ->
+            when (theme) {
+                Theme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Theme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Theme.SYSTEM -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+        }
+    }
 
-                        ModeType.MANAGE.name -> {
-                            intent.component =
-                                ComponentName(
-                                    "com.lst_1995.freetableorder",
-                                    "com.lst_1995.manage.ManageMainActivity",
-                                )
-                        }
+    private suspend fun modeCheck() {
+        viewModel.selectMode.collect { mode ->
+            val intent = Intent()
+            when (mode) {
+                ModeType.NONE.name -> {
+                    intent.component =
+                        ComponentName(
+                            "com.lst_1995.freetableorder",
+                            "com.lst_1995.login.LoginActivity",
+                        )
+                }
 
-                        ModeType.KITCHEN.name -> {
-                            intent.component =
-                                ComponentName(
-                                    "com.lst_1995.freetableorder",
-                                    "com.lst_1995.kitchen.KitchenMainActivity",
-                                )
-                        }
+                ModeType.MANAGE.name -> {
+                    intent.component =
+                        ComponentName(
+                            "com.lst_1995.freetableorder",
+                            "com.lst_1995.manage.ManageMainActivity",
+                        )
+                }
 
-                        ModeType.TABLE.name -> {
-                            intent.component =
-                                ComponentName(
-                                    "com.lst_1995.freetableorder",
-                                    "com.lst_1995.table.TableMainActivity",
-                                )
-                        }
-                    }
-                    startActivity(intent)
-                    finish()
+                ModeType.KITCHEN.name -> {
+                    intent.component =
+                        ComponentName(
+                            "com.lst_1995.freetableorder",
+                            "com.lst_1995.kitchen.KitchenMainActivity",
+                        )
+                }
+
+                ModeType.TABLE.name -> {
+                    intent.component =
+                        ComponentName(
+                            "com.lst_1995.freetableorder",
+                            "com.lst_1995.table.TableMainActivity",
+                        )
                 }
             }
+            startActivity(intent)
+            finish()
         }
     }
 }
