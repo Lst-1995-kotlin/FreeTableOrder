@@ -37,41 +37,6 @@
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar3">
 
             <LinearLayout
-                android:id="@+id/dynamicSettingLayout"
-                style="@style/layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:id="@+id/textView"
-                    style="@style/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dynamic_color_use" />
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp">
-
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/dymicYesButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dynamic_color_yes" />
-
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/dymicNoButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dynamic_color_no" />
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/darkThemeSettingLayout"
                 style="@style/layout"
                 android:layout_width="match_parent"
