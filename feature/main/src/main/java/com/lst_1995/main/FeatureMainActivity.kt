@@ -14,6 +14,7 @@ import com.lst_1995.core.domain.model.ModeType
 import com.lst_1995.core.domain.usecase.Theme
 import com.lst_1995.main.databinding.ActivityFeatureMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class FeatureMainActivity : AppCompatActivity() {
     }
 
     private suspend fun themeCheck() {
-        viewModel.theme.collect { theme ->
+        viewModel.theme.first().let { theme ->
             when (theme) {
                 Theme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Theme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -51,7 +52,7 @@ class FeatureMainActivity : AppCompatActivity() {
     }
 
     private suspend fun modeCheck() {
-        viewModel.selectMode.collect { mode ->
+        viewModel.mode.collect { mode ->
             val intent = Intent()
             when (mode) {
                 ModeType.NONE.name -> {
