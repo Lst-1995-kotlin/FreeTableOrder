@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -16,6 +17,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.lst_1995.core.domain.usecase.Theme
+import com.lst_1995.core.domain.usecase.ThemeUseCase
 import com.lst_1995.core.domain.util.NetworkManager
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,6 +32,9 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     @Inject
     lateinit var networkManager: NetworkManager
 
+    @Inject
+    lateinit var themeUseCase: ThemeUseCase
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,24 +42,39 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        setNetworkStateObserver()
+        setObserver()
         return binding.root
     }
 
-    private fun setNetworkStateObserver() {
+    private fun setObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                networkManager.networkStateFlow().collect { state ->
-                    if (!state) {
-                        val dialog = MaterialAlertDialogBuilder(requireContext())
-                        dialog.setMessage(resources.getString(R.string.network_error_message))
-                        dialog.setPositiveButton(resources.getString(R.string.check)) { dialog, _ ->
-                            dialog.dismiss()
-                            requireActivity().finish()
-                        }
-                        dialog.show()
-                    }
+                launch { observerNetworkState() }
+                launch { observeTheme() }
+            }
+        }
+    }
+
+    private suspend fun observerNetworkState() {
+        networkManager.networkStateFlow().collect { state ->
+            if (!state) {
+                val dialog = MaterialAlertDialogBuilder(requireContext())
+                dialog.setMessage(resources.getString(R.string.network_error_message))
+                dialog.setPositiveButton(resources.getString(R.string.check)) { dialog, _ ->
+                    dialog.dismiss()
+                    requireActivity().finish()
                 }
+                dialog.show()
+            }
+        }
+    }
+
+    private suspend fun observeTheme() {
+        themeUseCase.loadAppThemeFlow().collect { theme ->
+            when (theme) {
+                Theme.LIGHT -> changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
+                Theme.DARK -> changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
+                Theme.SYSTEM -> changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
         }
     }
@@ -81,5 +102,9 @@ abstract class BaseFragment<VB : ViewDataBinding>(
 
     private fun setupBackStack() {
         findNavController().popBackStack()
+    }
+
+    private fun changeTheme(theme: Int) {
+        AppCompatDelegate.setDefaultNightMode(theme)
     }
 }

@@ -2,7 +2,6 @@ package com.lst_1995.manage.theme
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -24,7 +23,7 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
     ) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        observeTheme()
+        setObserver()
         setRadioButton()
         setBackStack()
     }
@@ -33,35 +32,26 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
         setBackStackByToolbar(binding.materialToolbar3)
     }
 
-    private fun observeTheme() {
+    private fun setObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    viewModel.appTheme.collect { theme ->
-                        when (theme) {
-                            Theme.LIGHT -> {
-                                binding.lightThemeButton.isChecked = true
-                                changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                            }
+                launch { observeTheme() }
+            }
+        }
+    }
 
-                            Theme.DARK -> {
-                                binding.darkThemeButton.isChecked = true
-                                changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
-                            }
-
-                            Theme.SYSTEM -> {
-                                binding.systemDefaultThemeButton.isChecked = true
-                                changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                            }
-                        }
-                    }
-                }
+    private suspend fun observeTheme() {
+        viewModel.appTheme.collect { theme ->
+            when (theme) {
+                Theme.LIGHT -> binding.lightThemeButton.isChecked = true
+                Theme.DARK -> binding.darkThemeButton.isChecked = true
+                Theme.SYSTEM -> binding.systemDefaultThemeButton.isChecked = true
             }
         }
     }
 
     private fun setRadioButton() {
-        binding.themeRg.setOnCheckedChangeListener { _, checkedId ->
+        binding.themeRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.systemDefaultThemeButton -> {
                     viewModel.changeSystemTheme()
@@ -76,9 +66,5 @@ class ManageThemeFragment : BaseFragment<FragmentManageThemeBinding>(R.layout.fr
                 }
             }
         }
-    }
-
-    private fun changeTheme(theme: Int) {
-        AppCompatDelegate.setDefaultNightMode(theme)
     }
 }
