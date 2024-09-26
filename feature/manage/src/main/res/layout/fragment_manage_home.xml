@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -12,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:transitionGroup="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/materialToolbar"
@@ -33,120 +35,133 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/menuManageCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                    <TextView
-                        android:id="@+id/menuManageTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/menu_manage" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuManageCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/salesHistoryCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginEnd="60dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/menuManageCv"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/menuManageCv">
+                        <TextView
+                            android:id="@+id/menuManageTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/menu_manage" />
+                    </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/salesHistoryTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/sales_history" />
-                </androidx.cardview.widget.CardView>
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/tableManageCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="48dp"
-                    app:layout_constraintStart_toStartOf="@+id/menuManageCv"
-                    app:layout_constraintTop_toBottomOf="@+id/menuManageCv">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/salesHistoryCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
 
-                    <TextView
-                        android:id="@+id/tableManageTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/table_manage" />
-                </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/salesHistoryTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/sales_history" />
+                    </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/themeManageCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    app:layout_constraintEnd_toEndOf="@+id/salesHistoryCv"
-                    app:layout_constraintStart_toStartOf="@+id/salesHistoryCv"
-                    app:layout_constraintTop_toTopOf="@+id/tableManageCv">
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/themeManageTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/theme_manage" />
-                </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/passwordManageCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="48dp"
-                    android:layout_marginBottom="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/tableManageCv"
-                    app:layout_constraintStart_toStartOf="@+id/tableManageCv"
-                    app:layout_constraintTop_toBottomOf="@+id/tableManageCv">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/themeManageCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
 
-                    <TextView
-                        android:id="@+id/passwordManageTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/password_manage" />
-                </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/themeManageTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/theme_manage" />
+                    </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/waitScreenManageCv"
-                    style="@style/cardView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    app:layout_constraintEnd_toEndOf="@+id/themeManageCv"
-                    app:layout_constraintStart_toStartOf="@+id/themeManageCv"
-                    app:layout_constraintTop_toTopOf="@+id/passwordManageCv">
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/waitScreenManageTv"
-                        style="@style/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/wait_screen_manage" />
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tableManageCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/tableManageTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/table_manage" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/waitScreenManageCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
+
+                        <TextView
+                            android:id="@+id/waitScreenManageTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/wait_screen_manage" />
+                    </androidx.cardview.widget.CardView>
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/passwordManageCv"
+                        style="@style/cardView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
+
+                        <TextView
+                            android:id="@+id/passwordManageTv"
+                            style="@style/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/password_manage" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+            </LinearLayout>
         </ScrollView>
 
 
