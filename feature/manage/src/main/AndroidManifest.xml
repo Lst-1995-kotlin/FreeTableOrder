@@ -4,6 +4,7 @@
     <application>
         <activity
             android:name=".ManageMainActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
         </activity>
     </application>

@@ -37,7 +37,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -51,7 +51,8 @@
                         android:id="@+id/menuManageCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/menuManageTv"
@@ -69,7 +70,8 @@
                         android:id="@+id/salesHistoryCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/salesHistoryTv"
@@ -92,7 +94,8 @@
                         android:id="@+id/themeManageCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/themeManageTv"
@@ -110,7 +113,8 @@
                         android:id="@+id/tableManageCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/tableManageTv"
@@ -132,7 +136,8 @@
                         android:id="@+id/waitScreenManageCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/waitScreenManageTv"
@@ -150,7 +155,8 @@
                         android:id="@+id/passwordManageCv"
                         style="@style/cardView"
                         android:layout_width="120dp"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:layout_margin="12dp">
 
                         <TextView
                             android:id="@+id/passwordManageTv"
