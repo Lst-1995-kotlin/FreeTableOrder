@@ -27,12 +27,16 @@ class SelectModeFragment : BaseFragment<FragmentSelectModeBinding>(R.layout.frag
         view: View,
         savedInstanceState: Bundle?,
     ) {
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        setBinding()
         setupToolbarNavigation()
         setUpBackPress()
         setObserver()
         loadTheme()
+    }
+
+    private fun setBinding() {
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
     }
 
     private fun loadTheme() {

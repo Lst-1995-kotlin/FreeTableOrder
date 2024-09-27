@@ -1,19 +1,27 @@
 package com.lst_1995.manage.menu
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
+import com.lst_1995.manage.databinding.FragmentManuManageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class MenuManageFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+@AndroidEntryPoint
+class MenuManageFragment : BaseFragment<FragmentManuManageBinding>(R.layout.fragment_manu_manage) {
+    private val viewModel: MenuManageViewModel by viewModels()
+
+    override fun onViewCreated(
+        view: View,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_manu_manage, container, false)
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+        setBinding()
+    }
+
+    private fun setBinding() {
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 }
