@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 class FeatureMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFeatureMainBinding
     private val viewModel: MainViewModel by viewModels()
-    private var isPermissionRequested = false
 
     private val permissions =
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
@@ -109,9 +108,9 @@ class FeatureMainActivity : AppCompatActivity() {
     // 권한이 거부된 경우 설정 화면으로 안내하는 다이얼로그
     private fun showPermissionDeniedDialogWithSettings() {
         MaterialAlertDialogBuilder(this)
-            .setTitle("권한이 필요합니다")
-            .setMessage("이 앱을 사용하려면 권한을 허용해야 합니다. 설정으로 이동하여 권한을 수동으로 허용하세요.")
-            .setPositiveButton("설정으로 이동") { _, _ ->
+            .setTitle(resources.getString(R.string.permission_required_message))
+            .setMessage(resources.getString(R.string.permission_instructions))
+            .setPositiveButton(resources.getString(R.string.navigate_to_settings)) { _, _ ->
                 // 앱의 설정 화면으로 이동하여 권한을 허용하도록 유도
                 val intent =
                     Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
@@ -119,18 +118,18 @@ class FeatureMainActivity : AppCompatActivity() {
                     }
                 startActivity(intent)
                 finish()
-            }.setNegativeButton("취소") { _, _ ->
+            }.setNegativeButton(resources.getString(R.string.cancel)) { _, _ ->
                 finish()
             }.show()
     }
 
     private fun showPermissionDeniedDialog() {
         MaterialAlertDialogBuilder(this)
-            .setTitle("권한 허용")
-            .setMessage("앱을 사용하기 위해 권한을 허용해주세요.")
-            .setPositiveButton("확인") { _, _ ->
+            .setTitle(resources.getString(R.string.allow_permission))
+            .setMessage(resources.getString(R.string.request_permission_message))
+            .setPositiveButton(resources.getString(R.string.check)) { _, _ ->
                 requestPermission()
-            }.setNegativeButton("취소") { _, _ ->
+            }.setNegativeButton(resources.getString(R.string.cancel)) { _, _ ->
                 finish()
             }.show()
     }
