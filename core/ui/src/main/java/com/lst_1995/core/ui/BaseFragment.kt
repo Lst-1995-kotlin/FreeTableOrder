@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -82,6 +83,13 @@ abstract class BaseFragment<VB : ViewDataBinding>(
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    protected fun navigateTo(
+        destinationId: Int,
+        navOptions: NavOptions? = null,
+    ) {
+        findNavController().navigate(destinationId, null, navOptions)
     }
 
     protected fun showToastMessage(message: String) {

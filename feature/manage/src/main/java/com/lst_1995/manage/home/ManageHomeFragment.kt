@@ -10,7 +10,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 import com.lst_1995.core.domain.model.ModeType
 import com.lst_1995.core.ui.BaseFragment
 import com.lst_1995.manage.R
@@ -89,12 +88,5 @@ class ManageHomeFragment : BaseFragment<FragmentManageHomeBinding>(R.layout.frag
                 navigateTo(R.id.action_manageHomeFragment_to_manageWaitScreenFragment, navOption)
             }
         }
-    }
-
-    private fun navigateTo(
-        destinationId: Int,
-        navOptions: NavOptions? = null,
-    ) {
-        findNavController().navigate(destinationId, null, navOptions)
     }
 }
