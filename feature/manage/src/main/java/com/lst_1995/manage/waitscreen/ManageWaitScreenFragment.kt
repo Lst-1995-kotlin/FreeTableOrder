@@ -18,6 +18,11 @@ class ManageWaitScreenFragment : BaseFragment<FragmentManageWaitScreenBinding>(R
     ) {
         super.onViewCreated(view, savedInstanceState)
         setBinding()
+        setBackStack()
+    }
+
+    private fun setBackStack() {
+        setBackStackByToolbar(binding.materialToolbar4)
     }
 
     private fun setBinding() {

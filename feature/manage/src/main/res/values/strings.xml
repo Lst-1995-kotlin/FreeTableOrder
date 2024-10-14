@@ -27,4 +27,8 @@
     <string name="dark_mode">다크 모드</string>
     <string name="light_mode">라이트 모드</string>
     <string name="system_default_mode">시스템 설정 사용</string>
+    <!-- 대기화면 관리 -->
+    <string name="wait_screen_setting">대기화면 설정</string>
+    <string name="wait_screen_images">대기화면 이미지</string>
+    <string name="image_add">이미지 추가</string>
 </resources>

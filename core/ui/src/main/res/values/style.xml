@@ -28,8 +28,12 @@
         <item name="android:theme">@style/Theme.FreeTableOrder</item>
         <item name="navigationIcon">?android:attr/actionModeCloseDrawable</item>
         <item name="titleMargin">0dp</item>
+        <item name="titleTextAppearance">@style/ToolbarTitleTextAppearance</item>
+    </style>
+
+    <style name="ToolbarTitleTextAppearance" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">@dimen/text_large</item>
-        <item name="font">@font/nanumsquareneo_heavy</item>
+        <item name="fontFamily">@font/nanumsquareneo_bold</item>
     </style>
 
     <style name="cardView" parent="Widget.Material3.CardView.Elevated">
